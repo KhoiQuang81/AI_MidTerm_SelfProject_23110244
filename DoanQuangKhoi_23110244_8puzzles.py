@@ -733,6 +733,5 @@ def main():
 
     root.mainloop()
 
-# Main
 if __name__ == "__main__":
     main()
