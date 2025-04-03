@@ -2,7 +2,7 @@
 8 Puzzles game
 
 
-# UNIFORMED SEARCH
+## UNIFORMED SEARCH
 **Thuật toán BFS**
 
 ![BFS](GIF/BFS_GIF.gif)
