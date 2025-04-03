@@ -1,3 +1,4 @@
+import math
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
@@ -319,6 +320,81 @@ def stochastic_hill_climbing(start, goal):
     
     return None, expansions if current_state != goal else (path, expansions)
 
+# Thuật toán Simulated Annealing
+# Thuật toán Simulated Annealing
+def simulated_annealing(start, goal, initial_temp=1000, alpha=0.95, k_steps=100):
+    current_state = start
+    path = [start]
+    expansions = 0
+    T = initial_temp  # Nhiệt độ ban đầu
+
+    while T > 1 and not stop_flag:
+        for _ in range(k_steps):
+            if current_state == goal:
+                return path, expansions
+
+            neighbors = get_neighbors(current_state)
+            if not neighbors:
+                break
+
+            # Chọn ngẫu nhiên một trạng thái láng giềng
+            next_state = random.choice(neighbors)
+            expansions += 1
+
+            # Tính toán sự thay đổi năng lượng (heuristic)
+            current_heuristic = manhattan_distance(current_state, goal)
+            next_heuristic = manhattan_distance(next_state, goal)
+            delta_e = current_heuristic - next_heuristic
+
+            # Quyết định chấp nhận trạng thái mới
+            if delta_e > 0 or random.uniform(0, 1) < math.exp(delta_e / T):
+                current_state = next_state
+                path.append(next_state)
+
+        # Giảm nhiệt độ
+        T *= alpha
+
+    return None, expansions if current_state != goal else (path, expansions)
+
+# Thuật toán Beam Search
+def beam_search(start, goal, beam_width=3):
+    visited = set()
+    queue = [(manhattan_distance(start, goal), start, [start])]  # (heuristic, state, path)
+    heapq.heapify(queue)
+    expansions = 0
+    
+    while queue and not stop_flag:
+        # Lấy tất cả trạng thái trong hàng đợi hiện tại (giới hạn bởi beam_width)
+        current_level = []
+        for _ in range(min(beam_width, len(queue))):
+            if not queue:
+                break
+            h, state, path = heapq.heappop(queue)
+            current_level.append((h, state, path))
+        
+        # Khám phá các trạng thái láng giềng của các trạng thái trong current_level
+        next_level = []
+        for _, state, path in current_level:
+            state_tuple = tuple(tuple(row) for row in state)
+            
+            if state == goal:
+                return path, expansions
+                
+            if state_tuple not in visited:
+                visited.add(state_tuple)
+                for neighbor in get_neighbors(state):
+                    expansions += 1
+                    if tuple(tuple(row) for row in neighbor) not in visited:
+                        h = manhattan_distance(neighbor, goal)
+                        next_level.append((h, neighbor, path + [neighbor]))
+        
+        # Sắp xếp các trạng thái láng giềng theo heuristic và giữ lại beam_width trạng thái tốt nhất
+        next_level.sort(key=lambda x: x[0])  # Sắp xếp theo heuristic
+        queue = [(h, state, path) for h, state, path in next_level[:beam_width]]
+        heapq.heapify(queue)
+    
+    return None, expansions
+
 # Vẽ bảng
 def draw_board(canvas, board, step_num, elapsed_time, expansions):
     canvas.delete("all")
@@ -367,7 +443,9 @@ def solve_puzzle(start_state, goal_state, algorithm, canvas, root, speed_scale, 
         "IDA*": ida_star,
         "Simple Hill Climbing": simple_hill_climbing,
         "Steepest-Ascent Hill Climbing": steepest_ascent_hill_climbing,
-        "Stochastic Hill Climbing": stochastic_hill_climbing
+        "Stochastic Hill Climbing": stochastic_hill_climbing,
+        "Simulated Annealing": simulated_annealing,
+        "Beam Search": beam_search
     }
 
     if not is_solvable(start_state):
@@ -598,7 +676,7 @@ def main():
     tk.Label(control_frame, text="Select Algorithm:", font=("Arial", 12), bg="#F4F6F7").pack(pady=5)
     algo_var = tk.StringVar(value="")
     algo_combobox = ttk.Combobox(control_frame, textvariable=algo_var, state="readonly", font=("Arial", 12), width=20)
-    algo_combobox['values'] = ["BFS", "DFS", "UCS", "Greedy", "Iterative Deepening", "A*", "IDA*", "Simple Hill Climbing", "Steepest-Ascent Hill Climbing", "Stochastic Hill Climbing"]
+    algo_combobox['values'] = ["BFS", "DFS", "UCS", "Greedy", "Iterative Deepening", "A*", "IDA*", "Simple Hill Climbing", "Steepest-Ascent Hill Climbing", "Stochastic Hill Climbing", "Simulated Annealing", "Beam Search"]
     algo_combobox.pack(pady=5)
 
     speed_frame = tk.Frame(control_frame, bg="#F4F6F7")
