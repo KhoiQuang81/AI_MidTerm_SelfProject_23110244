@@ -3,4 +3,5 @@
 
 
 **Thuật toán BFS**
-![BFS](GIF/BFS_GIF.gif)
+
+![BFS].(GIF/BFS_GIF.gif)
