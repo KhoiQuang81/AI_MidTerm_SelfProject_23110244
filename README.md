@@ -2,7 +2,8 @@
 8 Puzzles game
 
 
-## UNIFORMED SEARCH
+## UNINFORMED SEARCH
+
 **Thuật toán BFS**
 
 ![BFS](GIF/BFS_GIF.gif)
@@ -12,6 +13,27 @@
 
 ![DFS](GIF/DFS_GIF.gif)
 
+
+**Thuật toán Uniform Cost Search**
+
+![UCS](GIF/UCS_GIF.gif)
+
+
+**Thuật toán Iterative Deepening**
+
+![Iterative Deepening](GIF/GreedySearch_GIF.gif)
+
+
+
+
+
+## INFORMED SEARCH
+
 **Thuật toán Greedy Search**
 
-![Greedy](GIF/GreedySearch_GIF.gif)
+![Greedy Search](GIF/GreedySearch_GIF.gif)
+
+
+**Thuật toán A/***
+
+![DFS](GIF/A_Star_GIF.gif)
