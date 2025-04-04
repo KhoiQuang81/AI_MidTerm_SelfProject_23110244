@@ -6,3 +6,12 @@
 **Thuật toán BFS**
 
 ![BFS](GIF/BFS_GIF.gif)
+
+
+**Thuật toán DFS**
+
+![DFS](GIF/DFS_GIF.gif)
+
+**Thuật toán Greedy Search**
+
+![Greedy](GIF/Greedy_GIF.gif)
