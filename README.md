@@ -14,4 +14,4 @@
 
 **Thuật toán Greedy Search**
 
-![Greedy](GIF/Greedy_GIF.gif)
+![Greedy](GIF/GreedySearch_GIF.gif)
