@@ -34,12 +34,12 @@
 ![Greedy Search](GIF/Greedy_Search_GIF.gif)
 
 
-**Thuật toán A/***
+**Thuật toán A***
 
 ![A*](GIF/A_Star_GIF.gif)
 
 
-**Thuật toán Iterative Deepening A/***
+**Thuật toán Iterative Deepening A***
 
 ![Iterative Deepening A*](GIF/IDA_Star_GIF.gif)
 
@@ -49,7 +49,7 @@
 
 ## LOCAL SEARCH
 
-**Thuật toán Simple Hill Climbing***
+**Thuật toán Simple Hill Climbing**
 
 ![Simple Hill Climbing](GIF/Simple_Hill_Climbing_GIF.gif)
 
