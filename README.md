@@ -54,12 +54,12 @@
 ![Simple Hill Climbing](GIF/Simple_Hill_Climbing_GIF.gif)
 
 
-**Thuật toán Steepest - Ascent Hill Climbing***
+**Thuật toán Steepest - Ascent Hill Climbing**
 
 ![Steepest - Ascent Hill Climbing](GIF/Steepest-Ascent_Hill_Climbing_GIF.gif)
 
 
-**Thuật toán Stochastic Hill Climbing***
+**Thuật toán Stochastic Hill Climbing**
 
 ![Stochastic Hill Climbing](GIF/Stochastic_Hill_Climbing_GIF.gif)
 
@@ -68,7 +68,7 @@
 
 ## 
 
-**Thuật toán Simulated Annealing***
+**Thuật toán Simulated Annealing**
 
 ![Simulated Annealing](GIF/Simulated_Annealing_GIF.gif)
 
