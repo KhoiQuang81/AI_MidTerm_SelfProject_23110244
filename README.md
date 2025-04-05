@@ -4,12 +4,12 @@
 
 ## UNINFORMED SEARCH
 
-**Thuật toán BFS**
+**Thuật toán Breadth - First Search**
 
 ![BFS](GIF/BFS_GIF.gif)
 
 
-**Thuật toán DFS**
+**Thuật toán Depth - First Search**
 
 ![DFS](GIF/DFS_GIF.gif)
 
@@ -19,9 +19,9 @@
 ![UCS](GIF/UCS_GIF.gif)
 
 
-**Thuật toán Iterative Deepening**
+**Thuật toán Iterative Deepening Depth - First Search**
 
-![Iterative Deepening](GIF/GreedySearch_GIF.gif)
+![Iterative Deepening](GIF/IDDFS_GIF.gif)
 
 
 
@@ -29,11 +29,20 @@
 
 ## INFORMED SEARCH
 
-**Thuật toán Greedy Search**
+###**Thuật toán Greedy Search**
 
 ![Greedy Search](GIF/GreedySearch_GIF.gif)
 
 
-**Thuật toán A/***
+###**Thuật toán A/***
 
 ![DFS](GIF/A_Star_GIF.gif)
+
+
+###**Thuật toán Iterative Deepening A/***
+
+![DFS](GIF/IDA_Star_GIF.gif)
+
+
+## LOCAL SEARCH
+
