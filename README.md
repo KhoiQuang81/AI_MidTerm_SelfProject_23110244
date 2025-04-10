@@ -6,22 +6,22 @@
 
 **Thuật toán Breadth - First Search**
 
-![BFS](GIF/BFS_GIF.gif)
+![Breadth - First Search](GIF/BFS_GIF.gif)
 
 
 **Thuật toán Depth - First Search**
 
-![DFS](GIF/DFS_GIF.gif)
+![Depth - First Search](GIF/DFS_GIF.gif)
 
 
 **Thuật toán Uniform Cost Search**
 
-![UCS](GIF/UCS_GIF.gif)
+![Uniform Cost Search](GIF/UCS_GIF.gif)
 
 
 **Thuật toán Iterative Deepening Depth - First Search**
 
-![Iterative Deepening](GIF/IDDFS_GIF.gif)
+![Iterative Deepening Depth - First Search](GIF/IDDFS_GIF.gif)
 
 
 
@@ -29,20 +29,53 @@
 
 ## INFORMED SEARCH
 
-###**Thuật toán Greedy Search**
+**Thuật toán Greedy Search**
 
-![Greedy Search](GIF/GreedySearch_GIF.gif)
-
-
-###**Thuật toán A/***
-
-![DFS](GIF/A_Star_GIF.gif)
+![Greedy Search](GIF/Greedy_Search_GIF.gif)
 
 
-###**Thuật toán Iterative Deepening A/***
+**Thuật toán A***
 
-![DFS](GIF/IDA_Star_GIF.gif)
+![A*](GIF/A_Star_GIF.gif)
+
+
+**Thuật toán Iterative Deepening A***
+
+![Iterative Deepening A*](GIF/IDA_Star_GIF.gif)
+
+
+
 
 
 ## LOCAL SEARCH
+
+**Thuật toán Simple Hill Climbing**
+
+![Simple Hill Climbing](GIF/Simple_Hill_Climbing_GIF.gif)
+
+
+**Thuật toán Steepest - Ascent Hill Climbing**
+
+![Steepest - Ascent Hill Climbing](GIF/Steepest-Ascent_Hill_Climbing_GIF.gif)
+
+
+**Thuật toán Stochastic Hill Climbing**
+
+![Stochastic Hill Climbing](GIF/Stochastic_Hill_Climbing_GIF.gif)
+
+
+**Thuật toán Simulated Annealing**
+
+![Simulated Annealing](GIF/Simulated_Annealing_GIF.gif)
+
+
+**Thuật toán Beam Search**
+
+![Beam Search](GIF/Beam_Search_GIF.gif)
+
+
+
+
+
+# NONDETERMINISTIC ENVIRONMENT
 
