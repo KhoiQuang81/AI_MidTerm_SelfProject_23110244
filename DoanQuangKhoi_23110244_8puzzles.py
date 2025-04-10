@@ -114,7 +114,7 @@ def ucs(start, goal):
                 heapq.heappush(queue, (new_cost, neighbor, path + [neighbor]))
     return None, expansions
 
-# Thuật toán Greedy
+# Thuật toán Greedy search
 def greedy_search(start, goal):
     visited = set()
     queue = [(manhattan_distance(start, goal), start, [start])]
@@ -135,7 +135,7 @@ def greedy_search(start, goal):
                 heapq.heappush(queue, (manhattan_distance(neighbor, goal), neighbor, path + [neighbor]))
     return None, expansions
 
-# Thuật toán Iterative Deepening
+# Thuật toán Iterative Deepening dfs
 def iterative_deepening(start, goal):
     depth = 0
     expansions = 0
@@ -244,7 +244,7 @@ def simple_hill_climbing(start, goal):
                 break
         
         if not found_better:
-            break  # Không tìm thấy trạng thái tốt hơn, dừng lại
+            break  # Không thấy trạng thái tốt hơn thif dừng lại
     
     return None, expansions if current_state != goal else (path, expansions)
 
@@ -277,7 +277,7 @@ def steepest_ascent_hill_climbing(start, goal):
                 best_neighbor = neighbor
         
         if best_heuristic >= current_heuristic or best_neighbor is None:
-            break  # Không tìm thấy trạng thái tốt hơn, dừng lại
+            break  # Không thấy trạng thái tốt hơn thif dừng lại
         
         current_state = best_neighbor
         path.append(best_neighbor)
@@ -316,50 +316,58 @@ def stochastic_hill_climbing(start, goal):
             current_state = random.choice(better_neighbors)
             path.append(current_state)
         else:
-            break  # Không tìm thấy trạng thái tốt hơn, dừng lại
+            break  # Không thấy trạng thái tốt hơn thif dừng lại
     
     return None, expansions if current_state != goal else (path, expansions)
 
 # Thuật toán Simulated Annealing
-# Thuật toán Simulated Annealing
-def simulated_annealing(start, goal, initial_temp=1000, alpha=0.95, k_steps=100):
-    current_state = start
+def simulated_annealing(start, goal, initial_temp=1000, cooling_rate=0.995, min_temp=1e-8):
+    current_state = copy.deepcopy(start)
+    best_state = copy.deepcopy(start)
     path = [start]
     expansions = 0
-    T = initial_temp  # Nhiệt độ ban đầu
-
-    while T > 1 and not stop_flag:
-        for _ in range(k_steps):
-            if current_state == goal:
-                return path, expansions
-
-            neighbors = get_neighbors(current_state)
-            if not neighbors:
-                break
-
-            # Chọn ngẫu nhiên một trạng thái láng giềng
-            next_state = random.choice(neighbors)
-            expansions += 1
-
-            # Tính toán sự thay đổi năng lượng (heuristic)
-            current_heuristic = manhattan_distance(current_state, goal)
-            next_heuristic = manhattan_distance(next_state, goal)
-            delta_e = current_heuristic - next_heuristic
-
-            # Quyết định chấp nhận trạng thái mới
-            if delta_e > 0 or random.uniform(0, 1) < math.exp(delta_e / T):
-                current_state = next_state
-                path.append(next_state)
-
-        # Giảm nhiệt độ
-        T *= alpha
-
-    return None, expansions if current_state != goal else (path, expansions)
+    temperature = initial_temp
+    
+    def energy(state):
+        return manhattan_distance(state, goal)
+    
+    current_energy = energy(current_state)
+    best_energy = current_energy
+    
+    while temperature > min_temp and not stop_flag:
+        neighbors = get_neighbors(current_state) # xet trang thai xung quuanh
+        expansions += len(neighbors)
+        
+        if not neighbors:
+            break
+        
+        next_state = random.choice(neighbors)  # Chọn ngẫu nhiên một láng giềng
+        next_energy = energy(next_state)
+        
+        delta_energy = next_energy - current_energy # Tinh chenh lech
+        
+        # Chấp nhận trạng thái mới nếu tốt hơn hoặc dựa trên xác suất Boltzmann
+        if delta_energy < 0 or random.random() < math.exp(-delta_energy / temperature):
+            current_state = next_state
+            current_energy = next_energy
+            path.append(current_state)
+            
+            # Cập nhật trạng thái tốt nhất nếu cần
+            if current_energy < best_energy:
+                best_state = current_state
+                best_energy = current_energy
+        
+        temperature *= cooling_rate
+    
+    # Kiểm tra xem trạng thái tốt nhất có phải là mục tiêu không
+    if best_state == goal:
+        return path, expansions
+    return None, expansions
 
 # Thuật toán Beam Search
 def beam_search(start, goal, beam_width=3):
     visited = set()
-    queue = [(manhattan_distance(start, goal), start, [start])]  # (heuristic, state, path)
+    queue = [(manhattan_distance(start, goal), start, [start])]
     heapq.heapify(queue)
     expansions = 0
     
@@ -398,7 +406,7 @@ def beam_search(start, goal, beam_width=3):
 # Vẽ bảng
 def draw_board(canvas, board, step_num, elapsed_time, expansions):
     canvas.delete("all")
-    cell_size = 120  # Tăng kích thước ô
+    cell_size = 120 
     for i in range(3):
         for j in range(3):
             x1, y1 = j * cell_size, i * cell_size
@@ -431,13 +439,13 @@ def format_step(step):
 def solve_puzzle(start_state, goal_state, algorithm, canvas, root, speed_scale, speed_label, stats, steps_text):
     global stop_flag, pause_flag
     stop_flag = False
-    pause_flag = False  # Đảm bảo reset pause_flag khi bắt đầu
+    pause_flag = False  # bien reset nut pause
     
     algorithms = {
         "BFS": bfs,
         "DFS": dfs,
         "UCS": ucs,
-        "Greedy": greedy_search,
+        "Greedy Search": greedy_search,
         "Iterative Deepening": iterative_deepening,
         "A*": a_star,
         "IDA*": ida_star,
@@ -676,7 +684,7 @@ def main():
     tk.Label(control_frame, text="Select Algorithm:", font=("Arial", 12), bg="#F4F6F7").pack(pady=5)
     algo_var = tk.StringVar(value="")
     algo_combobox = ttk.Combobox(control_frame, textvariable=algo_var, state="readonly", font=("Arial", 12), width=20)
-    algo_combobox['values'] = ["BFS", "DFS", "UCS", "Greedy", "Iterative Deepening", "A*", "IDA*", "Simple Hill Climbing", "Steepest-Ascent Hill Climbing", "Stochastic Hill Climbing", "Simulated Annealing", "Beam Search"]
+    algo_combobox['values'] = ["BFS", "DFS", "UCS", "Iterative Deepening", "Greedy Search", "A*", "IDA*", "Simple Hill Climbing", "Steepest-Ascent Hill Climbing", "Stochastic Hill Climbing", "Simulated Annealing", "Beam Search"]
     algo_combobox.pack(pady=5)
 
     speed_frame = tk.Frame(control_frame, bg="#F4F6F7")
