@@ -5,18 +5,19 @@ from time import sleep, perf_counter
 from uninformed import UninformedSearch
 from informed import InformedSearch
 from local import LocalSearch
+from complex import Complex
+from reinforcement import Reinforcement
 from iu import IU
 
 uninformed_algo = UninformedSearch()
 informed_algo = InformedSearch()
 local_algo = LocalSearch()
+complex_algo = Complex()
+reinfocement_algo = Reinforcement()
 iu = IU()
-
 
 stop_flag = False
 pause_flag = False
-
-
 
 # Hàm giải bài toán
 def solve_puzzle(start_state, goal_state, algorithm, canvas, root, speed_scale, speed_label, stats, steps_text):
@@ -38,6 +39,8 @@ def solve_puzzle(start_state, goal_state, algorithm, canvas, root, speed_scale, 
         "Simulated Annealing": local_algo.simulated_annealing,
         "Beam Search": local_algo.beam_search,
         "Genetic Algorithm": local_algo.genetic_algorithm,
+        "And-Or Search": complex_algo.and_or_search,
+        "Q-Learning": reinfocement_algo.q_learning,
     }
 
     if not iu.is_solvable(start_state):

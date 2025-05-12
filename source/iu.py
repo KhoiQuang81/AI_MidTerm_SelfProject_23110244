@@ -90,7 +90,6 @@ class IU:
     def pause_resume(self,pause_flag, pause_button):
         pause_flag[0] = not pause_flag[0]
         pause_button.config(text="Resume" if pause_flag[0] else "Pause")
-
         
     def randomize_initial(self,start_entries, stats, stats_frame, steps_text):
         random_state = self.generate_random_state()
@@ -168,8 +167,12 @@ class IU:
         tk.Label(control_frame, text="Select Algorithm:", font=("Arial", 12), bg="#F4F6F7").pack(pady=5)
         self.algo_var = tk.StringVar(value="")
         algo_combobox = tk.ttk.Combobox(control_frame, textvariable=self.algo_var, state="readonly", font=("Arial", 12), width=20)
-        algo_combobox['values'] = ["BFS", "DFS", "UCS", "Iterative Deepening", "Greedy Search", "A*", "IDA*", 
-                                   "Simple Hill Climbing", "Steepest-Ascent Hill Climbing", "Stochastic Hill Climbing", "Simulated Annealing", "Beam Search", "Genetic Algorithm"]
+        algo_combobox['values'] = ["BFS", "DFS", "UCS", "Iterative Deepening",
+                                   "Greedy Search", "A*", "IDA*",
+                                   "Simple Hill Climbing", "Steepest-Ascent Hill Climbing", "Stochastic Hill Climbing", "Simulated Annealing", "Beam Search", "Genetic Algorithm",
+                                   "And-Or Search", "Sensorless Search", "Belief-BFS",
+                                   "Backtracking", "Forward Checking", "AC-3",
+                                   "Q-Learning"]
         algo_combobox.pack(pady=5)
 
         speed_frame = tk.Frame(control_frame, bg="#F4F6F7")
