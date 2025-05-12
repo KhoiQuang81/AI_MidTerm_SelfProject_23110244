@@ -4,9 +4,9 @@
 
 ## UNINFORMED SEARCH
 
-**Thuật toán Breadth - First Search**                **Thuật toán Depth - First Search**
+**Thuật toán Breadth - First Search**
 
-![Breadth - First Search](GIF/BFS_GIF.gif)                ![Depth - First Search](GIF/DFS_GIF.gif)
+![Breadth - First Search](GIF/BFS_GIF.gif)
 
 
 **Thuật toán Depth - First Search**
