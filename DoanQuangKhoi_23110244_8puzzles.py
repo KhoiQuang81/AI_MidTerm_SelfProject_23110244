@@ -50,6 +50,7 @@ def manhattan_distance(state, goal):
                 dist += abs(i - goal_i) + abs(j - goal_j)
     return dist
 
+## Uniformed Search
 # Thuật toán BFS
 def bfs(start, goal):
     visited = set()
@@ -114,6 +115,21 @@ def ucs(start, goal):
                 heapq.heappush(queue, (new_cost, neighbor, path + [neighbor]))
     return None, expansions
 
+# Thuật toán Iterative Deepening dfs
+def iterative_deepening(start, goal):
+    depth = 0
+    expansions = 0
+    while not stop_flag:
+        result, new_expansions = dfs(start, goal, depth)
+        expansions += new_expansions
+        if result:
+            return result, expansions
+        depth += 1
+        if depth > 50:
+            return None, expansions
+    return None, expansions
+
+## Informed Search
 # Thuật toán Greedy search
 def greedy_search(start, goal):
     visited = set()
@@ -133,20 +149,6 @@ def greedy_search(start, goal):
             for neighbor in get_neighbors(state):
                 expansions += 1
                 heapq.heappush(queue, (manhattan_distance(neighbor, goal), neighbor, path + [neighbor]))
-    return None, expansions
-
-# Thuật toán Iterative Deepening dfs
-def iterative_deepening(start, goal):
-    depth = 0
-    expansions = 0
-    while not stop_flag:
-        result, new_expansions = dfs(start, goal, depth)
-        expansions += new_expansions
-        if result:
-            return result, expansions
-        depth += 1
-        if depth > 50:
-            return None, expansions
     return None, expansions
 
 # Thuật toán A*
@@ -214,6 +216,7 @@ def ida_star(start, goal):
         threshold = new_threshold
     return None, expansions
 
+## Local Search
 # Thuật toán Simple Hill Climbing
 def simple_hill_climbing(start, goal):
     current_state = start
@@ -402,6 +405,8 @@ def beam_search(start, goal, beam_width=3):
         heapq.heapify(queue)
     
     return None, expansions
+
+## 
 
 # Vẽ bảng
 def draw_board(canvas, board, step_num, elapsed_time, expansions):
