@@ -406,7 +406,22 @@ def beam_search(start, goal, beam_width=3):
     
     return None, expansions
 
-## 
+# Gernetic Search
+def genetic_search(start, goal, population_size=100, generations=1000, mutation_rate=0.1):
+    pass
+
+## SEARCHING IN COMPLEX ENVIRONMENT
+# Thuật toán And - Or Search
+# Thuật toán Sensorless
+# Thuật toán Belief - BFS (Partial Environment)
+
+## CONSTRAINT-BASED SEARCH
+# Thuật toán Backtracking
+# Ràng buộc AC - 3
+# Ràng buộc Forward Checking
+
+## REINFORCEMENT LEARNING
+# Thuật toán Q-learning
 
 # Vẽ bảng
 def draw_board(canvas, board, step_num, elapsed_time, expansions):
