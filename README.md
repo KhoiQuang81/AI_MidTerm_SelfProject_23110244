@@ -74,8 +74,47 @@
 ![Beam Search](GIF/Beam_Search_GIF.gif)
 
 
+**Thuật toán Gernetic Search**
+![Gernetic Search](GIF/Gernetic_Search_GIF.gif)
 
 
 
-# NONDETERMINISTIC ENVIRONMENT
 
+
+## SEARCHING IN COMPLEX ENVIRONMENT
+
+**Thuật toán And - Or Search**
+![And - Or Search](GIF/And_Or_Search_GIF.gif)
+
+
+**Thuật toán Sensorless**
+![Sensorless](GIF/Sensorless_GIF.gif)
+
+
+**Thuật toán Belief - BFS (Partial Environment)**
+![Belief - BFS](GIF/Belief_BFS_GIF.gif)
+
+
+
+
+
+## CONSTRAINT-BASED SEARCH
+
+**Thuật toán Backtracking**
+![Backtracking](GIF/Backtracking_GIF.gif)
+
+
+**Thuật toán AC - 3**
+![AC - 3](GIF/AC3_Search_GIF.gif)
+
+
+**Thuật toán Forwarding Checking**
+![Forwarding Checking](GIF/Forwarding_Checking_GIF.gif)
+
+
+
+
+
+## REINFORCEMENT LEARNING
+**Thuật toán Q - Learning**
+![Q - Learning](GIF/Q_Learning_GIF.gif)
