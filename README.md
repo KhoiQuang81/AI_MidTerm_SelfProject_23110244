@@ -6,7 +6,8 @@
 
 ## 1. Mục tiêu
 - Xây dựng và triển khai các thuật toán tìm kiếm và học máy để giải bài toán 8-puzzle
-- Tìm hiểu và áp dụng các thuật toán trong AI
+- Tìm hiểu và áp dụng các thuật toán trong AI 
+
 **Mục tiêu chính của trò chơi 8 Puzzle:**
 - Đưa trạng thái ban đầu (Initial State) của bảng gồm 8 ô số (từ 1 đến 8) và một ô trống (có giá trị là 0)
 - Về trạng thái đích (Goal State) bằng cách di chuyển các ô liền kề với ô trống vào vị trí của ô trống
