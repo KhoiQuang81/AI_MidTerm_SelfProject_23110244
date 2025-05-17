@@ -8,10 +8,10 @@
 - Xây dựng và triển khai các thuật toán tìm kiếm và học máy để giải bài toán 8-puzzle
 - Tìm hiểu và áp dụng các thuật toán trong AI 
 
-**Mục tiêu chính của trò chơi 8 Puzzle:**
+**Mục tiêu trò chơi 8 Puzzle:**
 - Đưa trạng thái ban đầu (Initial State) của bảng gồm 8 ô số (từ 1 đến 8) và một ô trống (có giá trị là 0)
 - Về trạng thái đích (Goal State) bằng cách di chuyển các ô liền kề với ô trống vào vị trí của ô trống
-- Người chơi hoặc thuật toán sẽ thực hiện các bước di chuyển liên tiếp sao cho sau cùng bảng đạt đúng vị trí như trạng thái mục tiêu
+- Thuật toán sẽ thực hiện các bước di chuyển liên tiếp sao cho đạt đúng vị trí như trạng thái đích
 
 **Trong bài toán này:**
 - Trạng thái của bảng được biểu diễn dưới dạng ma trận 3x3 
@@ -30,7 +30,6 @@
 ---
 
 ## 2. Nội dung
-
 ### 2.1. Các thuật toán UNINFORMED SEARCH
 #### Thành phần chính:
 - **Trạng thái (State):** Ma trận 3x3 đại diện cho vị trí các ô số từ 1 đến 8 và ô trống (0)
@@ -41,7 +40,7 @@
 - **Chi phí (Cost):** Đối với thuật toán Uniform Cost Search (UCS), mỗi bước di chuyển sẽ được gán một chi phí. UCS sẽ tìm đường đi có tổng chi phí nhỏ nhất từ trạng thái đầu đến trạng thái đích
 
 #### Solution:
-- **Solution** là một dãy các trạng thái (hoặc dãy các hành động) dẫn từ trạng thái ban đầu đến trạng thái mục tiêu.
+- **Solution:** là một dãy các trạng thái (hoặc dãy các hành động) dẫn từ trạng thái ban đầu đến trạng thái mục tiêu.
 - Thông thường, solution được biểu diễn dưới dạng danh sách các trạng thái hoặc danh sách các hành động (up, down, left, right) để đạt được trạng thái mục tiêu.
 
 #### Các thuật toán:
@@ -59,7 +58,7 @@
 
 
 #### So sánh hiệu suất
-![So sánh hiệu suất thuật toán UNINFORMED SEARCH](GIF/UNINFORMED.png)
+![So sánh hiệu suất thuật toán UNINFORMED SEARCH](GIF/uninformed_stat.png)
 - **BFS**: Tìm kiếm theo chiều rộng, đảm bảo tìm được lời giải tối ưu nhưng tốn nhiều bộ nhớ.
 - **DFS**: Tìm kiếm theo chiều sâu, nhanh nhưng không đảm bảo tối ưu.
 - **UCS**: Tìm kiếm chi phí đồng nhất, đảm bảo tối ưu nhưng chậm hơn BFS.
@@ -70,96 +69,166 @@
 - **BFS** và **UCS** đảm bảo tìm được lời giải tối ưu nhưng tốn tài nguyên.
 - **DFS** và **IDDFS** phù hợp hơn khi bộ nhớ hạn chế.
 
+
 ---
+### 2.2. Các thuật toán INFORMED SEARCH
+#### Thành phần chính
+- **Trạng thái (State):** 
+- **Không gian trạng thái (State Space):** 
+- **Trạng thái đầu (Initial State):** 
+- **Trạng thái đích (Goal State):** 
+- **Hành động (Actions):** 
+- **Chi phí (Cost) (nếu có):**
 
-## INFORMED SEARCH
+#### Solution
+- **Solution:**
 
-**Thuật toán Greedy Search**
-
+#### Các thuật toán:
+1. **Thuật toán Greedy Search**
 ![Greedy Search](GIF/Greedy_Search_GIF.gif)
 
-
-**Thuật toán A***
-
+2. **Thuật toán A***
 ![A*](GIF/A_Star_GIF.gif)
 
-
-**Thuật toán Iterative Deepening A***
-
+3. **Thuật toán Iterative Deepening A***
 ![Iterative Deepening A*](GIF/IDA_Star_GIF.gif)
 
+#### So sánh hiệu suất
+![So sánh hiệu suất thuật toán INFORMED SEARCH](GIF/informed_stat.png)
+- **Greedy Search**:
+- **A***:
+- **Iterative Deepening A***:
+
+#### Nhận xét:
 
 
+---
+### 2.3. Các thuật toán LOCAL SEARCH
+#### Thành phần chính:
+- **Trạng thái (State):** 
+- **Không gian trạng thái (State Space):** 
+- **Trạng thái đầu (Initial State):** 
+- **Trạng thái đích (Goal State):** 
+- **Hành động (Actions):** 
+- **Chi phí (Cost) (nếu có):**
 
+#### Solution
+- **Solution:**
 
-## LOCAL SEARCH
-
+#### Các thuật toán:
 **Thuật toán Simple Hill Climbing**
-
 ![Simple Hill Climbing](GIF/Simple_Hill_Climbing_GIF.gif)
 
-
 **Thuật toán Steepest - Ascent Hill Climbing**
-
 ![Steepest - Ascent Hill Climbing](GIF/Steepest-Ascent_Hill_Climbing_GIF.gif)
 
-
 **Thuật toán Stochastic Hill Climbing**
-
 ![Stochastic Hill Climbing](GIF/Stochastic_Hill_Climbing_GIF.gif)
 
-
 **Thuật toán Simulated Annealing**
-
 ![Simulated Annealing](GIF/Simulated_Annealing_GIF.gif)
 
-
 **Thuật toán Beam Search**
-
 ![Beam Search](GIF/Beam_Search_GIF.gif)
-
 
 **Thuật toán Gernetic Search**
 ![Gernetic Search](GIF/Gernetic_Search_GIF.gif)
 
+#### So sánh hiệu suất
+![So sánh hiệu suất thuật toán LOCAL SEARCH](GIF/local_stat.png)
+- ****:
+- ****:
+- ****:
+- ****:
+- ****:
+- ****:
+
+#### Nhận xét:
 
 
+---
+### 2.4. Các thuật toán SEARCHING IN COMPLEX ENVIRONMENT
+#### Thành phần chính:
+- **Trạng thái (State):** 
+- **Không gian trạng thái (State Space):** 
+- **Trạng thái đầu (Initial State):** 
+- **Trạng thái đích (Goal State):** 
+- **Hành động (Actions):** 
+- **Chi phí (Cost) (nếu có):**
 
+#### Solution
+- **Solution:**
 
-## SEARCHING IN COMPLEX ENVIRONMENT
-
+#### Các thuật toán:
 **Thuật toán And - Or Search**
 ![And - Or Search](GIF/And_Or_Search_GIF.gif)
-
 
 **Thuật toán Sensorless**
 ![Sensorless](GIF/Sensorless_GIF.gif)
 
-
 **Thuật toán Belief - BFS (Partial Environment)**
 ![Belief - BFS](GIF/Belief_BFS_GIF.gif)
 
+#### So sánh hiệu suất
+![So sánh hiệu suất thuật toán SEARCHING IN COMPLEX ENVIRONMENT](GIF/complex_stat.png)
+- ****:
+- ****:
+- ****:
+
+#### Nhận xét:
 
 
+---
+### 2.5. Các thuật toán CONSTRAINT SATISFACTION PROBLEM
+#### Thành phần chính:
+- **Trạng thái (State):** 
+- **Không gian trạng thái (State Space):** 
+- **Trạng thái đầu (Initial State):** 
+- **Trạng thái đích (Goal State):** 
+- **Hành động (Actions):** 
+- **Chi phí (Cost) (nếu có):**
 
+#### Solution
+- **Solution:**
 
-## CONSTRAINT SATISFACTION PROBLEM
-
+#### Các thuật toán:
 **Thuật toán Backtracking**
 ![Backtracking](GIF/Backtracking_GIF.gif)
-
 
 **Thuật toán AC - 3**
 ![AC - 3](GIF/AC3_Search_GIF.gif)
 
-
 **Thuật toán Forwarding Checking**
 ![Forwarding Checking](GIF/Forwarding_Checking_GIF.gif)
 
+#### So sánh hiệu suất
+![So sánh hiệu suất thuật toán CONSTRAINT SATISFACTION PROBLEM](GIF/constraint_stat.png)
+- **Backtracking**:
+- **AC - 3**:
+- **Forwarding Checking**:
+
+#### Nhận xét:
 
 
+---
+### 2.6. Các thuật toán REINFORCEMENT LEARNING
+#### Thành phần chính:
+- **Trạng thái (State):** 
+- **Không gian trạng thái (State Space):** 
+- **Trạng thái đầu (Initial State):** 
+- **Trạng thái đích (Goal State):** 
+- **Hành động (Actions):** 
+- **Chi phí (Cost) (nếu có):**
 
+#### Solution
+- **Solution:**
 
-## REINFORCEMENT LEARNING
+#### Các thuật toán:
 **Thuật toán Q - Learning**
 ![Q - Learning](GIF/Q_Learning_GIF.gif)
+
+#### So sánh hiệu suất
+![So sánh hiệu suất thuật toán REINFORCEMENT LEARNING](GIF/reinforce_stat.png)
+- **Q - Learning**:
+
+#### Nhận xét:

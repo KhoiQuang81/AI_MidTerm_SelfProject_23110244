@@ -44,7 +44,7 @@ class Reinforcement:
             return new_state
         return None
 
-    def q_learning(self, start, goal, alpha=0.1, gamma=0.9, epsilon=0.3, episodes=10000):
+    def q_learning(self, start, goal, alpha=0.1, gamma=0.95, epsilon=0.3, episodes=10000):
         q_table = {}
         total_expansions = 0
         best_path = None
