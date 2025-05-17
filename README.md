@@ -40,8 +40,7 @@
 - **Chi phí:** Đối với thuật toán Uniform Cost Search (UCS), mỗi bước di chuyển sẽ được gán một chi phí. UCS sẽ tìm đường đi có tổng chi phí nhỏ nhất từ trạng thái đầu đến trạng thái đích
 
 #### Solution:
-- **Solution:** là một dãy các trạng thái (hoặc dãy các hành động) dẫn từ trạng thái ban đầu đến trạng thái mục tiêu.
-- Thông thường, solution được biểu diễn dưới dạng danh sách các trạng thái hoặc danh sách các hành động (up, down, left, right) để đạt được trạng thái mục tiêu.
+- Một dãy các trạng thái (hay các hành động) từ trạng thái ban đầu đến trạng thái mục tiêu
 
 #### Các thuật toán:
 1. **Thuật toán Breadth-First Search (BFS)**  
@@ -56,19 +55,17 @@
 4. **Thuật toán Iterative Deepening Depth-First Search (IDDFS)** 
 ![Iterative Deepening Depth - First Search](GIF/IDDFS_GIF.gif)
 
-
 #### So sánh hiệu suất
 ![So sánh hiệu suất thuật toán UNINFORMED SEARCH](GIF/uninformed_stat.png)
-- **BFS**: Tìm kiếm theo chiều rộng, đảm bảo tìm được lời giải tối ưu nhưng tốn nhiều bộ nhớ.
-- **DFS**: Tìm kiếm theo chiều sâu, nhanh nhưng không đảm bảo tối ưu.
-- **UCS**: Tìm kiếm chi phí đồng nhất, đảm bảo tối ưu nhưng chậm hơn BFS.
-- **IDDFS**: Kết hợp ưu điểm của BFS và DFS, hiệu quả hơn trong một số trường hợp.
+- **BFS**: Tìm kiếm theo chiều rộng, đảm bảo tìm được lời giải tối ưu nhưng tốn nhiều bộ nhớ
+- **DFS**: Tìm kiếm theo chiều sâu, nhanh nhưng không đảm bảo tối ưu
+- **UCS**: Tìm kiếm chi phí đồng nhất, đảm bảo tối ưu nhưng chậm hơn BFS
+- **IDDFS**: Kết hợp ưu điểm của BFS và DFS, hiệu quả hơn trong một số trường hợp
 
 #### Nhận xét:
-- Các thuật toán trong nhóm này phù hợp với bài toán nhỏ như 8-puzzle.
-- **BFS** và **UCS** đảm bảo tìm được lời giải tối ưu nhưng tốn tài nguyên.
-- **DFS** và **IDDFS** phù hợp hơn khi bộ nhớ hạn chế.
-
+- Các thuật toán trong nhóm này phù hợp với bài toán nhỏ như 8-puzzle
+- **BFS** và **UCS** đảm bảo tìm được lời giải tối ưu nhưng tốn tài nguyên
+- **DFS** và **IDDFS** phù hợp hơn khi bộ nhớ hạn chế
 
 ---
 
@@ -82,7 +79,7 @@
 - **Chi phí:** Mỗi bước di chuyển có chi phí 1 (áp dụng cho A*, IDA*).
 
 #### Solution
-- **Solution:** Một dãy các trạng thái hoặc hành động từ trạng thái đầu đến trạng thái đích, đảm bảo tối ưu nếu dùng A\*.
+- Một dãy các trạng thái hoặc hành động từ trạng thái đầu đến trạng thái đích, đảm bảo tối ưu nếu dùng A\*.
 
 #### Các thuật toán:
 1. **Thuật toán Greedy Search**
@@ -91,16 +88,15 @@
 ![Greedy Search](GIF/Greedy_Search_GIF.gif)
 
 2. **Thuật toán A\***         
-- **Cách hoạt động:**Kết hợp chi phí đã đi (g) và heuristic (h) để chọn trạng thái có tổng f = g + h nhỏ nhất
-- **Ưu điểm:**Đảm bảo tìm được lời giải tối ưu nếu heuristic chấp nhận được
-- **Nhược điểm:Tốn bộ nhớ và thời gian khi không gian trạng thái lớn
+- Cách hoạt động: Kết hợp chi phí đã đi (g) và heuristic (h) để chọn trạng thái có tổng f = g + h nhỏ nhất
+- Ưu điểm: Đảm bảo tìm được lời giải tối ưu nếu heuristic chấp nhận được
+- Nhược điểm: Tốn bộ nhớ và thời gian khi không gian trạng thái lớn
 
 ![A*](GIF/A_Star_GIF.gif)
 
 3. **Thuật toán Iterative Deepening A\***
-- **Cách hoạt động:**Lặp lại quá trình tìm kiếm với ngưỡng f tăng dần, kết hợp ưu điểm của A* và DFS
-- **Ưu điểm:**Tiết kiệm bộ nhớ hơn A*, vẫn đảm bảo tối ưu
-- **Nhược điểm:**Có thể lặp lại nhiều trạng thái, tốc độ chậm hơn A* trong một số trường hợp
+- Ưu điểm: Tiết kiệm bộ nhớ hơn A*, vẫn đảm bảo tối ưu
+- Nhược điểm: Có thể lặp lại nhiều trạng thái, tốc độ chậm hơn A* trong một số trường hợp
 
 ![Iterative Deepening A*](GIF/IDA_Star_GIF.gif)
 
@@ -126,7 +122,7 @@
 - **Hành động:** Di chuyển ô trống (0) lên, xuống, trái, phải nếu hợp lệ
 
 #### Solution
-- **Solution:**Một dãy các trạng thái từ trạng thái đầu đến trạng thái đích, có thể không tối ưu hoặc không đảm bảo tìm ra lời giải.
+- Một dãy các trạng thái từ trạng thái đầu đến trạng thái đích, có thể không tối ưu hoặc không đảm bảo tìm ra lời giải.
 
 #### Các thuật toán:
 1. **Thuật toán Simple Hill Climbing**
@@ -136,35 +132,30 @@
 ![Simple Hill Climbing](GIF/Simple_Hill_Climbing_GIF.gif)
 
 2. **Thuật toán Steepest - Ascent Hill Climbing**
-- **Cách hoạt động:**
 - **Ưu điểm:**
 - **Nhược điểm:**
 
 ![Steepest - Ascent Hill Climbing](GIF/Steepest-Ascent_Hill_Climbing_GIF.gif)
 
 3. **Thuật toán Stochastic Hill Climbing**
-- **Cách hoạt động:**
 - **Ưu điểm:**
 - **Nhược điểm:**
 
 ![Stochastic Hill Climbing](GIF/Stochastic_Hill_Climbing_GIF.gif)
 
 4. **Thuật toán Simulated Annealing**
-- **Cách hoạt động:**
 - **Ưu điểm:**
 - **Nhược điểm:**
 
 ![Simulated Annealing](GIF/Simulated_Annealing_GIF.gif)
 
 5. **Thuật toán Beam Search**    
-- **Cách hoạt động:**
 - **Ưu điểm:**
 - **Nhược điểm:**
                                 
 ![Beam Search](GIF/Beam_Search_GIF.gif)
 
-6. **Thuật toán Genetic Search**                                    
-- **Cách hoạt động:**
+6. **Thuật toán Genetic Search**                           
 - **Ưu điểm:**
 - **Nhược điểm:**
                 
@@ -172,14 +163,16 @@
 
 #### So sánh hiệu suất
 ![So sánh hiệu suất thuật toán LOCAL SEARCH](GIF/local_stat.png)
-- ****:
-- ****:
-- ****:
-- ****:
-- ****:
-- ****:
+- **Simple Hill Climbing**:
+- **Steepest - Ascent Hill Climbing**:
+- **Stochastic Hill Climbing**:
+- **Simulated Annealing**:
+- **Beam Search**:
+- **Genetic Search**:
 
 #### Nhận xét:
+- 
+-
 
 
 ---
@@ -197,31 +190,25 @@
 
 #### Các thuật toán:
 1. **Thuật toán And - Or Search**
-- **Cách hoạt động:**
 - **Ưu điểm:**
 - **Nhược điểm:**
-
 ![And - Or Search](GIF/And_Or_Search_GIF.gif)
 
 2. **Thuật toán Sensorless**
-- **Cách hoạt động:**
 - **Ưu điểm:**
 - **Nhược điểm:**
-
-![Sensorless](GIF/Sensorless_GIF.gif)
+![Sensorless Search](GIF/Sensorless_GIF.gif)
 
 3. **Thuật toán Belief - BFS (Partial Environment)**
-- **Cách hoạt động:**
 - **Ưu điểm:**
 - **Nhược điểm:**
-
-![Belief - BFS](GIF/Belief_BFS_GIF.gif)
+![Belief - State](GIF/Belief_State_GIF.gif)
 
 #### So sánh hiệu suất
 ![So sánh hiệu suất thuật toán SEARCHING IN COMPLEX ENVIRONMENT](GIF/complex_stat.png)
-- ****:
-- ****:
-- ****:
+- **And - Or Search**:
+- **Sensorless Search**:
+- **Belief - State**:
 
 #### Nhận xét:
 
@@ -233,32 +220,25 @@
 - **Không gian trạng thái (State Space):** 
 - **Trạng thái đầu (Initial State):** 
 - **Trạng thái đích (Goal State):** 
-- **Hành động (Actions):** 
-- **Chi phí (Cost) (nếu có):**
+- **Hành động (Actions):**
 
 #### Solution
 - **Solution:**
 
 #### Các thuật toán:
 1. **Thuật toán Backtracking**
-- **Cách hoạt động:**
 - **Ưu điểm:**
 - **Nhược điểm:**
-
 ![Backtracking](GIF/Backtracking_GIF.gif)
 
 2. **Thuật toán AC - 3**
-- **Cách hoạt động:**
 - **Ưu điểm:**
 - **Nhược điểm:**
-
 ![AC - 3](GIF/AC3_Search_GIF.gif)
 
 3. **Thuật toán Forwarding Checking**
-- **Cách hoạt động:**
 - **Ưu điểm:**
 - **Nhược điểm:**
-
 ![Forwarding Checking](GIF/Forwarding_Checking_GIF.gif)
 
 #### So sánh hiệu suất
@@ -278,21 +258,14 @@
 - **Trạng thái đầu (Initial State):** 
 - **Trạng thái đích (Goal State):** 
 - **Hành động (Actions):** 
-- **Chi phí (Cost) (nếu có):**
 
 #### Solution
 - **Solution:**
 
 #### Các thuật toán:
 1. **Thuật toán Q - Learning**    
-- **Cách hoạt động:**
 - **Ưu điểm:**
 - **Nhược điểm:**
-         
-Cách hoạt động
-Ưu điểm
-Nhược điểm
-Kết quả trả về
 ![Q - Learning](GIF/Q_Learning_GIF.gif)
 
 #### So sánh hiệu suất
@@ -300,6 +273,7 @@ Kết quả trả về
 - **Q - Learning**:
 
 #### Nhận xét:
+- 
 
 ## 3. Kết luận
 
