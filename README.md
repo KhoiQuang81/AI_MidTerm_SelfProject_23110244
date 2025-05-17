@@ -87,7 +87,7 @@
 1. **Thuật toán Greedy Search**
 ![Greedy Search](GIF/Greedy_Search_GIF.gif)
 
-2. **Thuật toán A**/*
+2. **Thuật toán A***         
 ![A*](GIF/A_Star_GIF.gif)
 
 3. **Thuật toán Iterative Deepening A***
