@@ -5,9 +5,26 @@
 ---
 
 ## 1. Mục tiêu
-- Xây dựng và triển khai các thuật toán tìm kiếm và học máy để giải bài toán 8-puzzle.
-- So sánh hiệu suất của các thuật toán khi áp dụng lên trò chơi.
-- Tìm hiểu và áp dụng các thuật toán trong môi trường phức tạp và học tăng cường.
+- Xây dựng và triển khai các thuật toán tìm kiếm và học máy để giải bài toán 8-puzzle
+- Tìm hiểu và áp dụng các thuật toán trong AI
+- Mục tiêu chính của trò chơi 8 Puzzle:
+    • Đưa trạng thái ban đầu (Initial State) của bảng gồm 8 ô số (từ 1 đến 8) và một ô trống (có giá trị là 0)
+    • Về trạng thái đích (Goal State) bằng cách di chuyển các ô liền kề với ô trống vào vị trí của ô trống
+- Người chơi hoặc thuật toán sẽ thực hiện các bước di chuyển liên tiếp sao cho sau cùng bảng đạt đúng vị trí như trạng thái mục tiêu
+
+- Trong bài toán này:
+    • Trạng thái của bảng được biểu diễn dưới dạng ma trận 3x3 
+    • Một trạng thái hợp lệ phải có đủ các số từ 0 đến 8 và chỉ có một số 0 (ô trống)
+    • Mỗi bước di chuyển chỉ có thể hoán đổi ô trống với một ô số kế bên theo hướng lên, xuống, trái hoặc phải
+
+- Mục tiêu chính là:
+    • Áp dụng các thuật toán AI (không có thông tin như BFS, DFS, UCS... và có thông tin như A*, Greedy...) để tự động tìm ra chuỗi các bước di chuyển từ trạng thái đầu đến trạng thái đích
+    • Đánh giá hiệu quả các thuật toán dựa trên thời gian thực thi, số lượng node được mở rộng và số bước trong lời giải
+
+- Ứng dụng của game:
+    • Theo dõi quá trình giải theo từng bước
+    • So sánh hiệu quả các thuật toán thông qua thống kê chi tiết
+    • Giúp sinh viên hiểu rõ cách các thuật toán AI hoạt động, từ đó áp dụng vào các bài toán phức tạp hơn trong lĩnh vực AI.
 
 ---
 
@@ -15,12 +32,12 @@
 
 ### 2.1. Các thuật toán UNINFORMED SEARCH
 #### Thành phần chính:
-- **Trạng thái (State):** Ma trận 3x3 đại diện cho vị trí các ô số từ 1 đến 8 và ô trống (0).
-- **Trạng thái ban đầu (Initial State):** Ma trận 3x3 với các số được sắp xếp ngẫu nhiên, không trùng lặp.
-- **Trạng thái mục tiêu (Goal State):** Ma trận 3x3 với các số theo thứ tự chuẩn, ví dụ: [[1, 2, 3], [4, 5, 6], [7, 8, 0]].
-- **Hành động (Actions):** Di chuyển ô trống (0) lên, xuống, trái, phải nếu hợp lệ.
-- **Hàm kế tiếp (Successor Function):** Sinh ra các trạng thái mới từ trạng thái hiện tại bằng một hành động hợp lệ.
-- **Kiểm tra mục tiêu (Goal Test):** Kiểm tra trạng thái hiện tại có giống trạng thái mục tiêu không.
+- **Trạng thái (State):** Ma trận 3x3 đại diện cho vị trí các ô số từ 1 đến 8 và ô trống (0)
+- **Không gian trạng thái (State Space):** Tập hợp tất cả các trạng thái hợp lệ mà trò chơi có thể đạt tới
+- **Trạng thái đầu (Initial State):** Ma trận 3x3 với các số được sắp xếp ngẫu nhiên, không trùng lặp
+- **Trạng thái đích (Goal State):** Ma trận 3x3 với các số theo thứ tự chuẩn, ví dụ: [[1, 2, 3], [4, 5, 6], [7, 8, 0]]
+- **Hành động (Actions):** Di chuyển ô trống (0) lên, xuống, trái, phải nếu hợp lệ
+- **Chi phí (Cost):** Đối với thuật toán Uniform Cost Search (UCS), mỗi bước di chuyển sẽ được gán một chi phí. UCS sẽ tìm đường đi có tổng chi phí nhỏ nhất từ trạng thái đầu đến trạng thái đích
 
 #### Solution:
 - **Solution** là một dãy các trạng thái (hoặc dãy các hành động) dẫn từ trạng thái ban đầu đến trạng thái mục tiêu.
