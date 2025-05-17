@@ -131,7 +131,7 @@
 
 #### Các thuật toán:
 1. **Thuật toán Simple Hill Climbing**
-- **Cách hoạt động:**
+**Cách hoạt động:**
 - **Ưu điểm:**
 - **Nhược điểm:**
 
