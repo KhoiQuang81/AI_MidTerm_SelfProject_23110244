@@ -131,8 +131,8 @@
 **Thuật toán Beam Search**                                    
 ![Beam Search](GIF/Beam_Search_GIF.gif)
 
-**Thuật toán Gernetic Search**
-![Gernetic Search](GIF/Gernetic_Search_GIF.gif)
+**Thuật toán Genetic Search**
+![Genetic Search](GIF/Genetic_GIF.gif)
 
 #### So sánh hiệu suất
 ![So sánh hiệu suất thuật toán LOCAL SEARCH](GIF/local_stat.png)
@@ -232,3 +232,10 @@
 - **Q - Learning**:
 
 #### Nhận xét:
+
+## 3. Kết luận
+### 3.1. Giao Diện
+
+### 3.2. Thuật toán
+
+### 3.3. Ứng dụng thực tiễn
