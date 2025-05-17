@@ -91,13 +91,11 @@
 - Cách hoạt động: Kết hợp chi phí đã đi (g) và heuristic (h) để chọn trạng thái có tổng f = g + h nhỏ nhất
 - Ưu điểm: Đảm bảo tìm được lời giải tối ưu nếu heuristic chấp nhận được
 - Nhược điểm: Tốn bộ nhớ và thời gian khi không gian trạng thái lớn
-
 ![A*](GIF/A_Star_GIF.gif)
 
 3. **Thuật toán Iterative Deepening A\***
 - Ưu điểm: Tiết kiệm bộ nhớ hơn A*, vẫn đảm bảo tối ưu
 - Nhược điểm: Có thể lặp lại nhiều trạng thái, tốc độ chậm hơn A* trong một số trường hợp
-
 ![Iterative Deepening A*](GIF/IDA_Star_GIF.gif)
 
 #### So sánh hiệu suất

@@ -1,10 +1,9 @@
 import copy
-
+from itertools import permutations
 
 class Complex:
     def __init__(self):
-        self.stop_flag = False
-        self.pause_flag = False
+        pass
 
     def find_blank(self, state):
         for i in range(3):
@@ -61,3 +60,11 @@ class Complex:
 
         plan = or_search(start, [], 0)
         return (plan, expansions) if plan else (None, expansions)
+    
+    # Thuật toán Sensorless Search
+    def sensorless_search():
+        pass
+    
+    # Searching in Partially Observable Environments Belief - State Search
+    def belief_state_search():
+        pass

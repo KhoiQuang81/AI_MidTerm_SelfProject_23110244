@@ -10,22 +10,23 @@ from constraint import ConstraintSearch
 from reinforcement import Reinforcement
 from ui import IU
 
-uninformed_algo = UninformedSearch()
-informed_algo = InformedSearch()
-local_algo = LocalSearch()
-complex_algo = Complex()
-constraint_algo = ConstraintSearch()
-reinfocement_algo = Reinforcement()
+stop_flag = [False]
+pause_flag = [False]
+
+uninformed_algo = UninformedSearch(stop_flag, pause_flag)
+informed_algo = InformedSearch(stop_flag, pause_flag)
+local_algo = LocalSearch(stop_flag, pause_flag)
+complex_algo = Complex(stop_flag, pause_flag)
+constraint_algo = ConstraintSearch(stop_flag, pause_flag)
+reinforcement_algo = Reinforcement(stop_flag, pause_flag)
 iu = IU()
 
-stop_flag = False
-pause_flag = False
 
 # Hàm giải bài toán
 def solve_puzzle(start_state, goal_state, algorithm, canvas, root, speed_scale, speed_label, stats, steps_text):
     global stop_flag, pause_flag
-    stop_flag = False
-    pause_flag = False  # bien reset nut pause
+    stop_flag[0] = False
+    pause_flag[0] = False  # bien reset nut pause
     
     algorithms = {
         "BFS": uninformed_algo.bfs,
@@ -42,12 +43,12 @@ def solve_puzzle(start_state, goal_state, algorithm, canvas, root, speed_scale, 
         "Beam Search": local_algo.beam_search,
         "Genetic Algorithm": local_algo.genetic_algorithm,
         "And - Or Search": complex_algo.and_or_search,
-        "Sensorless Search": complex_algo.sensorless_search,
-        "Belief State Search": complex_algo.belief_state_search,
+        # "Sensorless Search": complex_algo.sensorless_search,
+        # "Belief State Search": complex_algo.belief_state_search,
         # "Backtracking": constraint_algo.backtracking,
         "AC-3": constraint_algo.ac3,
         "Forward Checking": constraint_algo.forward_checking,
-        "Q-Learning": reinfocement_algo.q_learning,
+        "Q-Learning": reinforcement_algo.q_learning,
     }
 
     if not iu.is_solvable(start_state):
@@ -58,19 +59,24 @@ def solve_puzzle(start_state, goal_state, algorithm, canvas, root, speed_scale, 
 
     # tINh thời gian
     start_time = perf_counter()
-    if algorithm == "Backtracking":
+    if algorithm == "Sensorless Search":
+        solution, expansions = complex_algo.sensorless_search(None, goal_state)
+    elif algorithm == "Belief State Search":
+        # partial_state = ... # lấy từ giao diện hoặc nhập tay
+        solution, expansions = complex_algo.belief_state_search(start_state, goal_state)
+    elif algorithm == "Backtracking":
         solution, expansions = constraint_algo.backtracking(goal_state)
     else:
         solution, expansions = algorithms[algorithm](start_state, goal_state)
     elapsed_time = perf_counter() - start_time
     stats[algorithm] = {"time": elapsed_time, "expansions": expansions}
 
-    if solution and not stop_flag:
+    if solution and not stop_flag[0]:
         for i, step in enumerate(solution):
-            while pause_flag and not stop_flag:
+            while pause_flag[0] and not stop_flag[0]:
                 root.update()
                 sleep(0.1)
-            if stop_flag:
+            if stop_flag[0]:
                 break
             display_speed = 1.0 - (speed_scale.get() * 0.9)
             iu.update_speed_label(speed_scale, speed_label)
@@ -80,14 +86,15 @@ def solve_puzzle(start_state, goal_state, algorithm, canvas, root, speed_scale, 
             steps_text.see(tk.END)
             root.update()
             sleep(display_speed)
-    elif not stop_flag:
+    elif not stop_flag[0]:
         messagebox.showinfo("Result", f"Không tìm thấy giải pháp. Expansions: {expansions}")
 
 def main():
     stats = {}
     # Sử dụng list để truyền tham chiếu cho stop_flag và pause_flag
-    stop_flag = [False]
-    pause_flag = [False]
+    global stop_flag, pause_flag  # Thêm global
+    stop_flag[0] = False         # Reset flags
+    pause_flag[0] = False
     iu.draw_ui(solve_puzzle, stats, stop_flag, pause_flag)
 
 if __name__ == "__main__":
