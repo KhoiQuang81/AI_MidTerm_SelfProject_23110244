@@ -170,7 +170,7 @@ class IU:
         algo_combobox['values'] = ["BFS", "DFS", "UCS", "Iterative Deepening",
                                    "Greedy Search", "A*", "IDA*",
                                    "Simple Hill Climbing", "Steepest-Ascent Hill Climbing", "Stochastic Hill Climbing", "Simulated Annealing", "Beam Search", "Genetic Algorithm",
-                                   "And-Or Search", "Sensorless Search", "Belief-BFS",
+                                   "And - Or Search", "Sensorless Search", "Belief State Search",
                                    "Backtracking", "Forward Checking", "AC-3",
                                    "Q-Learning"]
         algo_combobox.pack(pady=5)
