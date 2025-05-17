@@ -1,6 +1,7 @@
 # AI_MidTerm_SelfProject_23110244
 ## 8 Puzzles game
 
+![8 Puzzles game](GIF/game_ui.png)
 ---
 
 ## 1. Mục tiêu
