@@ -82,13 +82,12 @@
 - **Chi phí:** Mỗi bước di chuyển có chi phí 1 (áp dụng cho A*, IDA*).
 
 #### Solution
-- **Solution:**Một dãy các trạng thái hoặc hành động từ trạng thái đầu đến trạng thái đích, đảm bảo tối ưu nếu dùng A*.
+- **Solution:**Một dãy các trạng thái hoặc hành động từ trạng thái đầu đến trạng thái đích, đảm bảo tối ưu nếu dùng A\*.
 
-#### Các thuật toán
+#### Các thuật toán:
 1. **Thuật toán Greedy Search**
-- **Cách hoạt động:**Luôn chọn trạng thái láng giềng có giá trị heuristic (Manhattan distance) nhỏ nhất so với goal
-- **Ưu điểm:**Tốc độ nhanh, dễ cài đặt
-- **Nhược điểm:**Không đảm bảo tìm được lời giải tối ưu, dễ mắc kẹt ở vùng tối ưu cục bộ
+- Ưu điểm:Tốc độ nhanh, dễ cài đặt
+**Nhược điểm:**Không đảm bảo tìm được lời giải tối ưu, dễ mắc kẹt ở vùng tối ưu cục bộ
 ![Greedy Search](GIF/Greedy_Search_GIF.gif)
 
 2. **Thuật toán A\***         
@@ -131,7 +130,6 @@
 
 #### Các thuật toán:
 1. **Thuật toán Simple Hill Climbing**
-**Cách hoạt động:**
 - **Ưu điểm:**
 - **Nhược điểm:**
 
