@@ -6,6 +6,7 @@ from uninformed import UninformedSearch
 from informed import InformedSearch
 from local import LocalSearch
 from complex import Complex
+from constraint import ConstraintSearch
 from reinforcement import Reinforcement
 from iu import IU
 
@@ -13,6 +14,7 @@ uninformed_algo = UninformedSearch()
 informed_algo = InformedSearch()
 local_algo = LocalSearch()
 complex_algo = Complex()
+constraint_algo = ConstraintSearch()
 reinfocement_algo = Reinforcement()
 iu = IU()
 
@@ -39,7 +41,12 @@ def solve_puzzle(start_state, goal_state, algorithm, canvas, root, speed_scale, 
         "Simulated Annealing": local_algo.simulated_annealing,
         "Beam Search": local_algo.beam_search,
         "Genetic Algorithm": local_algo.genetic_algorithm,
-        "And-Or Search": complex_algo.and_or_search,
+        "And - Or Search": complex_algo.and_or_search,
+        "Sensorless Search": complex_algo.sensorless_search,
+        "Belief State Search": complex_algo.belief_state_search,
+        # "Backtracking": constraint_algo.backtracking,
+        "AC-3": constraint_algo.ac3,
+        "Forward Checking": constraint_algo.forward_checking,
         "Q-Learning": reinfocement_algo.q_learning,
     }
 
@@ -51,7 +58,10 @@ def solve_puzzle(start_state, goal_state, algorithm, canvas, root, speed_scale, 
 
     # tINh thời gian
     start_time = perf_counter()
-    solution, expansions = algorithms[algorithm](start_state, goal_state)
+    if algorithm == "Backtracking":
+        solution, expansions = constraint_algo.backtracking(goal_state)
+    else:
+        solution, expansions = algorithms[algorithm](start_state, goal_state)
     elapsed_time = perf_counter() - start_time
     stats[algorithm] = {"time": elapsed_time, "expansions": expansions}
 
