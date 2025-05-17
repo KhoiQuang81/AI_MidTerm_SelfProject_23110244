@@ -128,8 +128,8 @@
 **Thuật toán Simulated Annealing**
 ![Simulated Annealing](GIF/Simulated_Annealing_GIF.gif)
 
-**Thuật toán Beam Search**
-![Beam Search](GIF/Beam_Search_GIF.gif)                     
+**Thuật toán Beam Search**                                    
+![Beam Search](GIF/Beam_Search_GIF.gif)
 
 **Thuật toán Gernetic Search**
 ![Gernetic Search](GIF/Gernetic_Search_GIF.gif)
