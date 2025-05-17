@@ -7,24 +7,24 @@
 ## 1. Mục tiêu
 - Xây dựng và triển khai các thuật toán tìm kiếm và học máy để giải bài toán 8-puzzle
 - Tìm hiểu và áp dụng các thuật toán trong AI
-- Mục tiêu chính của trò chơi 8 Puzzle:
-    • Đưa trạng thái ban đầu (Initial State) của bảng gồm 8 ô số (từ 1 đến 8) và một ô trống (có giá trị là 0)
-    • Về trạng thái đích (Goal State) bằng cách di chuyển các ô liền kề với ô trống vào vị trí của ô trống
+**Mục tiêu chính của trò chơi 8 Puzzle:**
+- Đưa trạng thái ban đầu (Initial State) của bảng gồm 8 ô số (từ 1 đến 8) và một ô trống (có giá trị là 0)
+- Về trạng thái đích (Goal State) bằng cách di chuyển các ô liền kề với ô trống vào vị trí của ô trống
 - Người chơi hoặc thuật toán sẽ thực hiện các bước di chuyển liên tiếp sao cho sau cùng bảng đạt đúng vị trí như trạng thái mục tiêu
 
-- Trong bài toán này:
-    • Trạng thái của bảng được biểu diễn dưới dạng ma trận 3x3 
-    • Một trạng thái hợp lệ phải có đủ các số từ 0 đến 8 và chỉ có một số 0 (ô trống)
-    • Mỗi bước di chuyển chỉ có thể hoán đổi ô trống với một ô số kế bên theo hướng lên, xuống, trái hoặc phải
+**Trong bài toán này:**
+- Trạng thái của bảng được biểu diễn dưới dạng ma trận 3x3 
+- Một trạng thái hợp lệ phải có đủ các số từ 0 đến 8 và chỉ có một số 0 (ô trống)
+- Mỗi bước di chuyển chỉ có thể hoán đổi ô trống với một ô số kế bên theo hướng lên, xuống, trái hoặc phải
 
-- Mục tiêu chính là:
-    • Áp dụng các thuật toán AI (không có thông tin như BFS, DFS, UCS... và có thông tin như A*, Greedy...) để tự động tìm ra chuỗi các bước di chuyển từ trạng thái đầu đến trạng thái đích
-    • Đánh giá hiệu quả các thuật toán dựa trên thời gian thực thi, số lượng node được mở rộng và số bước trong lời giải
+**Mục tiêu chính là:**
+- Áp dụng các thuật toán AI (không có thông tin như BFS, DFS, UCS... và có thông tin như A*, Greedy...) để tự động tìm ra chuỗi các bước di chuyển từ trạng thái đầu đến trạng thái đích
+- Đánh giá hiệu quả các thuật toán dựa trên thời gian thực thi, số lượng node được mở rộng và số bước trong lời giải
 
-- Ứng dụng của game:
-    • Theo dõi quá trình giải theo từng bước
-    • So sánh hiệu quả các thuật toán thông qua thống kê chi tiết
-    • Giúp sinh viên hiểu rõ cách các thuật toán AI hoạt động, từ đó áp dụng vào các bài toán phức tạp hơn trong lĩnh vực AI.
+**Ứng dụng của game:**
+- Theo dõi quá trình giải theo từng bước
+- So sánh hiệu quả các thuật toán thông qua thống kê chi tiết
+- Giúp sinh viên hiểu rõ cách các thuật toán AI hoạt động, từ đó áp dụng vào các bài toán phức tạp hơn trong lĩnh vực AI.
 
 ---
 
