@@ -73,18 +73,19 @@
 ---
 ### 2.2. Các thuật toán INFORMED SEARCH
 #### Thành phần chính
-- **Trạng thái (State):** 
-- **Không gian trạng thái (State Space):** 
-- **Trạng thái đầu (Initial State):** 
-- **Trạng thái đích (Goal State):** 
-- **Hành động (Actions):** 
-- **Chi phí (Cost) (nếu có):**
+- **Trạng thái (State):** Ma trận 3x3 đại diện cho vị trí các ô số từ 1 đến 8 và ô trống (0)
+- **Không gian trạng thái (State Space):** Tập hợp tất cả các trạng thái hợp lệ mà trò chơi có thể đạt tới
+- **Trạng thái đầu (Initial State):** Ma trận 3x3 với các số được sắp xếp ngẫu nhiên, không trùng lặp
+- **Trạng thái đích (Goal State):** Ma trận 3x3 với các số theo thứ tự chuẩn
+- **Hành động (Actions):** Di chuyển ô trống (0) lên, xuống, trái, phải nếu hợp lệ
+- **Chi phí (Cost) (nếu có):** Mỗi bước di chuyển có chi phí 1 (áp dụng cho A*, IDA*).
 
 #### Solution
 - **Solution:**
 
 #### Các thuật toán:
 1. **Thuật toán Greedy Search**
+- ***Cách hoạt động:***
 ![Greedy Search](GIF/Greedy_Search_GIF.gif)
 
 2. **Thuật toán A***         
@@ -131,7 +132,7 @@
 **Thuật toán Beam Search**                                    
 ![Beam Search](GIF/Beam_Search_GIF.gif)
 
-**Thuật toán Genetic Search**
+**Thuật toán Genetic Search**                                                    
 ![Genetic Search](GIF/Genetic_GIF.gif)
 
 #### So sánh hiệu suất
@@ -224,7 +225,11 @@
 - **Solution:**
 
 #### Các thuật toán:
-**Thuật toán Q - Learning**                
+**Thuật toán Q - Learning**             
+Cách hoạt động
+Ưu điểm
+Nhược điểm
+Kết quả trả về
 ![Q - Learning](GIF/Q_Learning_GIF.gif)
 
 #### So sánh hiệu suất
