@@ -8,7 +8,7 @@ from local import LocalSearch
 from complex import Complex
 from constraint import ConstraintSearch
 from reinforcement import Reinforcement
-from iu import IU
+from ui import IU
 
 uninformed_algo = UninformedSearch()
 informed_algo = InformedSearch()

@@ -1,31 +1,57 @@
 # AI_MidTerm_SelfProject_23110244
-8 Puzzles game
+## 8 Puzzles game
 
+---
 
-## UNINFORMED SEARCH
+## 1. Mục tiêu
+- Xây dựng và triển khai các thuật toán tìm kiếm và học máy để giải bài toán 8-puzzle.
+- So sánh hiệu suất của các thuật toán khi áp dụng lên trò chơi.
+- Tìm hiểu và áp dụng các thuật toán trong môi trường phức tạp và học tăng cường.
 
-**Thuật toán Breadth - First Search**
+---
 
+## 2. Nội dung
+
+### 2.1. Các thuật toán UNINFORMED SEARCH
+#### Thành phần chính:
+- **Trạng thái (State):** Ma trận 3x3 đại diện cho vị trí các ô số từ 1 đến 8 và ô trống (0).
+- **Trạng thái ban đầu (Initial State):** Ma trận 3x3 với các số được sắp xếp ngẫu nhiên, không trùng lặp.
+- **Trạng thái mục tiêu (Goal State):** Ma trận 3x3 với các số theo thứ tự chuẩn, ví dụ: [[1, 2, 3], [4, 5, 6], [7, 8, 0]].
+- **Hành động (Actions):** Di chuyển ô trống (0) lên, xuống, trái, phải nếu hợp lệ.
+- **Hàm kế tiếp (Successor Function):** Sinh ra các trạng thái mới từ trạng thái hiện tại bằng một hành động hợp lệ.
+- **Kiểm tra mục tiêu (Goal Test):** Kiểm tra trạng thái hiện tại có giống trạng thái mục tiêu không.
+
+#### Solution:
+- **Solution** là một dãy các trạng thái (hoặc dãy các hành động) dẫn từ trạng thái ban đầu đến trạng thái mục tiêu.
+- Thông thường, solution được biểu diễn dưới dạng danh sách các trạng thái hoặc danh sách các hành động (up, down, left, right) để đạt được trạng thái mục tiêu.
+
+#### Các thuật toán:
+1. **Thuật toán Breadth-First Search (BFS)**  
 ![Breadth - First Search](GIF/BFS_GIF.gif)
 
-
-**Thuật toán Depth - First Search**
-
+2. **Thuật toán Depth-First Search (DFS)**  
 ![Depth - First Search](GIF/DFS_GIF.gif)
 
-
-**Thuật toán Uniform Cost Search**
-
+3. **Thuật toán Uniform Cost Search (UCS)**  
 ![Uniform Cost Search](GIF/UCS_GIF.gif)
 
-
-**Thuật toán Iterative Deepening Depth - First Search**
-
+4. **Thuật toán Iterative Deepening Depth-First Search (IDDFS)** 
 ![Iterative Deepening Depth - First Search](GIF/IDDFS_GIF.gif)
 
 
+#### So sánh hiệu suất
+![So sánh hiệu suất thuật toán UNINFORMED SEARCH](GIF/UNINFORMED.png)
+- **BFS**: Tìm kiếm theo chiều rộng, đảm bảo tìm được lời giải tối ưu nhưng tốn nhiều bộ nhớ.
+- **DFS**: Tìm kiếm theo chiều sâu, nhanh nhưng không đảm bảo tối ưu.
+- **UCS**: Tìm kiếm chi phí đồng nhất, đảm bảo tối ưu nhưng chậm hơn BFS.
+- **IDDFS**: Kết hợp ưu điểm của BFS và DFS, hiệu quả hơn trong một số trường hợp.
 
+#### Nhận xét:
+- Các thuật toán trong nhóm này phù hợp với bài toán nhỏ như 8-puzzle.
+- **BFS** và **UCS** đảm bảo tìm được lời giải tối ưu nhưng tốn tài nguyên.
+- **DFS** và **IDDFS** phù hợp hơn khi bộ nhớ hạn chế.
 
+---
 
 ## INFORMED SEARCH
 
@@ -98,7 +124,7 @@
 
 
 
-## CONSTRAINT-BASED SEARCH
+## CONSTRAINT SATISFACTION PROBLEM
 
 **Thuật toán Backtracking**
 ![Backtracking](GIF/Backtracking_GIF.gif)
