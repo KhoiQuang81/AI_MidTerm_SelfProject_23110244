@@ -129,7 +129,7 @@
 ![Simulated Annealing](GIF/Simulated_Annealing_GIF.gif)
 
 **Thuật toán Beam Search**
-![Beam Search](GIF/Beam_Search_GIF.gif)
+![Beam Search](GIF/Beam_Search_GIF.gif)                     
 
 **Thuật toán Gernetic Search**
 ![Gernetic Search](GIF/Gernetic_Search_GIF.gif)
@@ -224,7 +224,7 @@
 - **Solution:**
 
 #### Các thuật toán:
-**Thuật toán Q - Learning**
+**Thuật toán Q - Learning**                
 ![Q - Learning](GIF/Q_Learning_GIF.gif)
 
 #### So sánh hiệu suất
