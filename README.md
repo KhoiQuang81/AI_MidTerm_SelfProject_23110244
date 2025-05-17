@@ -82,18 +82,18 @@
 - **Chi phí:** Mỗi bước di chuyển có chi phí 1 (áp dụng cho A*, IDA*).
 
 #### Solution
-- **Solution:**Một dãy các trạng thái hoặc hành động từ trạng thái đầu đến trạng thái đích, đảm bảo tối ưu nếu dùng A\*.
+- **Solution:** Một dãy các trạng thái hoặc hành động từ trạng thái đầu đến trạng thái đích, đảm bảo tối ưu nếu dùng A\*.
 
 #### Các thuật toán:
 1. **Thuật toán Greedy Search**
-- Ưu điểm:Tốc độ nhanh, dễ cài đặt
-**Nhược điểm:**Không đảm bảo tìm được lời giải tối ưu, dễ mắc kẹt ở vùng tối ưu cục bộ
+- Ưu điểm: Tốc độ nhanh, dễ cài đặt
+- Nhược điểm: Không đảm bảo tìm được lời giải tối ưu, dễ mắc kẹt ở vùng tối ưu cục bộ
 ![Greedy Search](GIF/Greedy_Search_GIF.gif)
 
 2. **Thuật toán A\***         
 - **Cách hoạt động:**Kết hợp chi phí đã đi (g) và heuristic (h) để chọn trạng thái có tổng f = g + h nhỏ nhất
 - **Ưu điểm:**Đảm bảo tìm được lời giải tối ưu nếu heuristic chấp nhận được
-- **Nhược điểm:**Tốn bộ nhớ và thời gian khi không gian trạng thái lớn
+- **Nhược điểm:Tốn bộ nhớ và thời gian khi không gian trạng thái lớn
 
 ![A*](GIF/A_Star_GIF.gif)
 
