@@ -1,4 +1,4 @@
-# AI_MidTerm_SelfProject_23110244_DoanQuanKhoi
+# AI_MidTerm_SelfProject_23110244_DoanQuangKhoi
 ## 8 Puzzles game
 
 ![8 Puzzles game](GIF/game_ui.png)
@@ -124,38 +124,38 @@
 
 #### Các thuật toán:
 1. **Thuật toán Simple Hill Climbing**
-- **Ưu điểm:**Đơn giản, dễ cài đặt, tốc độ nhanh
-- **Nhược điểm:**Dễ mắc kẹt tại điểm tối ưu cục bộ, không đảm bảo tìm ra lời giải nếu gặp bế tắc
+- Ưu điểm: Đơn giản, dễ cài đặt, tốc độ nhanh
+- Nhược điểm: Dễ mắc kẹt tại điểm tối ưu cục bộ, không đảm bảo tìm ra lời giải nếu gặp bế tắc
 
 ![Simple Hill Climbing](GIF/Simple_Hill_Climbing_GIF.gif)
 
 2. **Thuật toán Steepest - Ascent Hill Climbing**
-- **Ưu điểm:**Luôn chọn nước đi tốt nhất trong các láng giềng, giảm khả năng mắc kẹt hơn so với Simple Hill Climbing
-- **Nhược điểm:**Vẫn có thể mắc kẹt tại tối ưu cục bộ, hiệu quả phụ thuộc vào heuristic
+- Ưu điểm: Luôn chọn nước đi tốt nhất trong các láng giềng, giảm khả năng mắc kẹt hơn so với Simple Hill Climbing
+- Nhược điểm: Vẫn có thể mắc kẹt tại tối ưu cục bộ, hiệu quả phụ thuộc vào heuristic
 
 ![Steepest - Ascent Hill Climbing](GIF/Steepest-Ascent_Hill_Climbing_GIF.gif)
 
 3. **Thuật toán Stochastic Hill Climbing**
-- **Ưu điểm:**Chọn ngẫu nhiên một láng giềng tốt hơn, giúp tránh lặp lại và tăng khả năng thoát khỏi tối ưu cục bộ
-- **Nhược điểm:**Không đảm bảo tìm ra lời giải, kết quả phụ thuộc vào may mắn
+- Ưu điểm: Chọn ngẫu nhiên một láng giềng tốt hơn, giúp tránh lặp lại và tăng khả năng thoát khỏi tối ưu cục bộ
+- Nhược điểm: Không đảm bảo tìm ra lời giải, kết quả phụ thuộc vào may mắn
 
 ![Stochastic Hill Climbing](GIF/Stochastic_Hill_Climbing_GIF.gif)
 
 4. **Thuật toán Simulated Annealing**
-- **Ưu điểm:**Có thể chấp nhận nước đi xấu với xác suất giảm dần, giúp thoát khỏi tối ưu cục bộ
-- **Nhược điểm:**Cần điều chỉnh tham số nhiệt độ, tốc độ giảm nhiệt phù hợp
+- Ưu điểm: Có thể chấp nhận nước đi xấu với xác suất giảm dần, giúp thoát khỏi tối ưu cục bộ
+- Nhược điểm: Cần điều chỉnh tham số nhiệt độ, tốc độ giảm nhiệt phù hợp
 
 ![Simulated Annealing](GIF/Simulated_Annealing_GIF.gif)
 
 5. **Thuật toán Beam Search**    
-- **Ưu điểm:**Kết hợp giữa BFS và heuristic, chỉ giữ lại một số trạng thái tốt nhất ở mỗi bước, tiết kiệm bộ nhớ
-- **Nhược điểm:**Có thể bỏ lỡ lời giải tối ưu nếu beam width nhỏ
+- Ưu điểm: Kết hợp giữa BFS và heuristic, chỉ giữ lại một số trạng thái tốt nhất ở mỗi bước, tiết kiệm bộ nhớ
+- Nhược điểm: Có thể bỏ lỡ lời giải tối ưu nếu beam width nhỏ
                                 
 ![Beam Search](GIF/Beam_Search_GIF.gif)
 
 6. **Thuật toán Genetic Search**                           
-- **Ưu điểm:**Khả năng tìm kiếm toàn cục tốt, thích hợp cho không gian trạng thái lớn
-- **Nhược điểm:**Cần điều chỉnh tham số (population size, mutation rate...), tốc độ chậm hơn các thuật toán khác
+- Ưu điểm: Khả năng tìm kiếm toàn cục tốt, thích hợp cho không gian trạng thái lớn
+- Nhược điểm: Cần điều chỉnh tham số (population size, mutation rate...), tốc độ chậm hơn các thuật toán khác
                 
 ![Genetic Search](GIF/Genetic_GIF.gif)
 
@@ -188,18 +188,18 @@
 
 #### Các thuật toán:
 1. **Thuật toán And - Or Search**
-- **Ưu điểm:**Giải quyết các bài toán có nhiều nhánh lựa chọn, phù hợp với môi trường không xác định
-- **Nhược điểm:**Cấu trúc lời giải phức tạp, khó trực quan hóa
+- Ưu điểm: Giải quyết các bài toán có nhiều nhánh lựa chọn, phù hợp với môi trường không xác định
+- Nhược điểm: Cấu trúc lời giải phức tạp, khó trực quan hóa
 ![And - Or Search](GIF/And_Or_Search_GIF.gif)
 
 2. **Thuật toán Sensorless**
-- **Ưu điểm:**Không cần biết trạng thái đầu, tìm kiếm trên toàn bộ không gian niềm tin
-- **Nhược điểm:**Không gian trạng thái rất lớn, tốn bộ nhớ và thời gian
+- Ưu điểm: Không cần biết trạng thái đầu, tìm kiếm trên toàn bộ không gian niềm tin
+- Nhược điểm: Không gian trạng thái rất lớn, tốn bộ nhớ và thời gian
 ![Sensorless Search](GIF/Sensorless_GIF.gif)
 
 3. **Thuật toán Belief - BFS (Partial Environment)**
-- **Ưu điểm:**Xử lý được trường hợp chỉ biết một phần trạng thái đầu, phù hợp với môi trường quan sát không đầy đủ
-- **Nhược điểm:**Hiệu quả phụ thuộc vào kích thước tập niềm tin ban đầu
+- Ưu điểm: Xử lý được trường hợp chỉ biết một phần trạng thái đầu, phù hợp với môi trường quan sát không đầy đủ
+- Nhược điểm: Hiệu quả phụ thuộc vào kích thước tập niềm tin ban đầu
 ![Belief - State](GIF/Belief_State_GIF.gif)
 
 #### So sánh hiệu suất
@@ -227,18 +227,18 @@
 
 #### Các thuật toán:
 1. **Thuật toán Backtracking**
-- **Ưu điểm:**Đơn giản, dễ cài đặt, đảm bảo tìm ra lời giải nếu tồn tại
-- **Nhược điểm:**Hiệu suất thấp với không gian trạng thái lớn, dễ bị lặp lại
+- Ưu điểm: Đơn giản, dễ cài đặt, đảm bảo tìm ra lời giải nếu tồn tại
+- Nhược điểm: Hiệu suất thấp với không gian trạng thái lớn, dễ bị lặp lại
 ![Backtracking](GIF/Backtracking_GIF.gif)
 
 2. **Thuật toán AC - 3**
-- **Ưu điểm:**Loại bỏ giá trị không hợp lệ khỏi miền biến, giảm không gian tìm kiếm
-- **Nhược điểm:**Không tự tìm ra lời giải, cần kết hợp với backtracking
+- Ưu điểm: Loại bỏ giá trị không hợp lệ khỏi miền biến, giảm không gian tìm kiếm
+- Nhược điểm: Không tự tìm ra lời giải, cần kết hợp với backtracking
 ![AC - 3](GIF/AC_3_GIF.gif)
 
 3. **Thuật toán Forwarding Checking**
-- **Ưu điểm:**Phát hiện sớm xung đột, giảm số lượng node mở rộng
-- **Nhược điểm:**Vẫn có thể phải quay lui nhiều nếu ràng buộc phức tạp
+- Ưu điểm: Phát hiện sớm xung đột, giảm số lượng node mở rộng
+- Nhược điểm: Vẫn có thể phải quay lui nhiều nếu ràng buộc phức tạp
 ![Forwarding Checking](GIF/Forward_Checking_GIF.gif)
 
 #### So sánh hiệu suất
@@ -265,8 +265,8 @@
 
 #### Các thuật toán:
 1. **Thuật toán Q - Learning**    
-- **Ưu điểm:**Không cần mô hình môi trường, có thể học từ trải nghiệm thực tế hoặc mô phỏng, dần dần tìm ra chính sách tối ưu
-- **Nhược điểm:** Cần nhiều lần lặp để tìm ra lời giải, hiệu quả phụ thuộc vào tham số và khó áp dụng cho không gian trạng thái quá lớn, tốn thời gian, tài nguyên
+- Ưu điểm: Không cần mô hình môi trường, có thể học từ trải nghiệm thực tế hoặc mô phỏng, dần dần tìm ra chính sách tối ưu
+- Nhược điểm:  Cần nhiều lần lặp để tìm ra lời giải, hiệu quả phụ thuộc vào tham số và khó áp dụng cho không gian trạng thái quá lớn, tốn thời gian, tài nguyên
                                    
 ![Q - Learning](GIF/Q_Learning_GIF.gif)
 
