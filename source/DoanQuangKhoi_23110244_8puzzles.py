@@ -18,6 +18,8 @@ informed_algo = InformedSearch()
 local_algo = LocalSearch()
 complex_algo = Complex()
 constraint_algo = ConstraintSearch()
+constraint_algo.stop_flag = stop_flag
+constraint_algo.pause_flag = pause_flag
 reinforcement_algo = Reinforcement()
 iu = IU()
 
@@ -45,9 +47,12 @@ def solve_puzzle(start_state, goal_state, algorithm, canvas, root, speed_scale, 
         "And - Or Search": complex_algo.and_or_search,
         "Sensorless Search": complex_algo.sensorless_search,
         "Belief State Search": complex_algo.belief_state_search,
-        "Backtracking": constraint_algo.backtracking,
-        "AC-3": constraint_algo.ac3,
-        "Forward Checking": constraint_algo.forward_checking,
+        # "Backtracking": lambda start, goal: constraint_algo.backtracking(goal),
+        # "AC-3": lambda start, goal: constraint_algo.ac3(goal),
+        # "Forward Checking": lambda start, goal: constraint_algo.forward_checking(goal),
+        "Backtracking": lambda start, goal: constraint_algo.backtracking(goal),
+        "AC-3": lambda start, goal: constraint_algo.ac3(goal),
+        "Forward Checking": lambda start, goal: constraint_algo.forward_checking(goal),
         "Q-Learning": reinforcement_algo.q_learning,
     }
 
@@ -58,21 +63,44 @@ def solve_puzzle(start_state, goal_state, algorithm, canvas, root, speed_scale, 
 
     # tINh thời gian
     start_time = perf_counter()
-    # Xử lý riêng cho các thuật toán CSP
-    if algorithm in ["Backtracking CSP", "AC-3", "Forward Checking"]:
-        # CSP chỉ cần goal_state
-        solution, expansions = algorithms[algorithm](goal_state)
-        
+    if algorithm in ["Backtracking", "AC-3", "Forward Checking"]:
+        solution, expansions = algorithms[algorithm](None, goal_state)
         if solution:
-            # Chuyển đổi solution về dạng path để hiển thị
-            path = []
+            formatted_solution = []
             for state in solution:
-                current_state = [[0 for _ in range(3)] for _ in range(3)]
-                for i in range(3):
-                    for j in range(3):
-                        current_state[i][j] = state[i][j] if state[i][j] is not None else 0
-                path.append(current_state)
-            solution = path
+                if isinstance(state, list):  # Nếu đã là ma trận
+                    formatted_solution.append(state)
+                else:  # Nếu là dictionary từ CSP
+                    current_state = [[0 for _ in range(3)] for _ in range(3)]
+                    # Sắp xếp các biến theo thứ tự X1->X9
+                    sorted_vars = sorted(state.items(), key=lambda x: int(x[0][1:]))
+                    for var, value in sorted_vars:
+                        idx = int(var[1:]) - 1  # Chuyển X1->X9 thành index 0->8
+                        row, col = idx // 3, idx % 3
+                        # Đảm bảo giá trị nằm trong khoảng 0-8
+                        current_state[row][col] = value if value != None else 0
+                    formatted_solution.append(current_state)
+            solution = formatted_solution
+    # if algorithm in ["Backtracking", "AC-3", "Forward Checking"]:
+    #     solution, expansions = algorithms[algorithm](None, goal_state)
+    #     if solution:
+    #         # Format lại solution để hiển thị đúng vị trí
+    #         formatted_solution = []
+    #         for state in solution:
+    #             # Nếu state là dictionary (từ CSP)
+    #             if isinstance(state, dict):
+    #                 current_state = [[0 for _ in range(3)] for _ in range(3)]
+    #                 # Sắp xếp các biến theo thứ tự vị trí
+    #                 sorted_vars = sorted(state.items(), key=lambda x: int(x[0][1:]))
+    #                 for var, value in sorted_vars:
+    #                     idx = int(var[1:]) - 1
+    #                     row, col = idx // 3, idx % 3
+    #                     current_state[row][col] = value
+    #                 formatted_solution.append(current_state)
+    #             # Nếu state là ma trận (từ các thuật toán khác)
+    #             else:
+    #                 formatted_solution.append(state)
+    #         solution = formatted_solution
     else:
         solution, expansions = algorithms[algorithm](start_state, goal_state)
     elapsed_time = perf_counter() - start_time
