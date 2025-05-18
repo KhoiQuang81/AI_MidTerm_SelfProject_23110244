@@ -282,17 +282,17 @@
 ## 3. Kết luận
 
 ### 3.1. Giao diện
-- Giao diện trực quan, dễ sử dụng, cho phép người dùng nhập trạng thái đầu và trạng thái đích.
-- Hiển thị trực tiếp quá trình giải và các bước di chuyển của thuật toán trên bảng 8-puzzle.
-- Thống kê chi tiết về thời gian thực thi, số node mở rộng, số bước giải cho từng thuật toán.
+- Giao diện trực quan, dễ sử dụng, cho phép người dùng nhập trạng thái đầu và trạng thái đích
+- Hiển thị trực tiếp quá trình giải và các bước di chuyển của thuật toán trên bảng 8 Puzzle
+- Thống kê chi tiết về thời gian thực thi, số node mở rộng, số bước giải cho từng thuật toán
 
 ### 3.2. Thuật toán
-- Đã triển khai và so sánh nhiều nhóm thuật toán: Uninformed, Informed, Local Search, Constraint Satisfaction, Reinforcement Learning.
-- Các thuật toán heuristic (A*, IDA*) và học tăng cường (Q-Learning) cho kết quả tốt về hiệu quả và tốc độ.
-- Các thuật toán như BFS, UCS đảm bảo tìm lời giải tối ưu nhưng tốn tài nguyên hơn.
-- Local Search và các thuật toán trong môi trường phức tạp giúp mở rộng khả năng áp dụng cho các bài toán AI thực tế.
+- Triển khai và so sánh đa dạng các nhóm thuật toán: Uninformed, Informed, Local Search, Constraint Satisfaction, Reinforcement Learning, và các thuật toán cho môi trường phức tạp (Sensorless, Belief-State)
+- Các thuật toán heuristic (A*, IDA*) và học tăng cường (Q-Learning) cho kết quả tốt về hiệu quả và tốc độ, phù hợp với các bài toán thực tế
+- Thuật toán BFS, UCS đảm bảo tìm lời giải tối ưu nhưng tiêu tốn nhiều tài nguyên hơn.
+- Local Search và các thuật toán trong môi trường niềm tin mở rộng khả năng áp dụng cho các bài toán AI phức tạp, không đầy đủ thông tin
 
 ### 3.3. Ứng dụng thực tiễn
-- Giúp sinh viên hiểu rõ bản chất và cách hoạt động của các thuật toán AI thông qua minh họa trực quan.
-- Có thể mở rộng áp dụng cho các bài toán tổ hợp, tối ưu hóa, hoặc các trò chơi trí tuệ khác.
-- Là nền tảng để nghiên cứu sâu hơn về AI, học máy, và các kỹ thuật giải quyết bài toán phức tạp trong thực tế.
+- Giúp sinh viên hiểu rõ bản chất và cách hoạt động của các thuật toán AI thông qua minh họa trực quan
+- Có thể mở rộng áp dụng cho các bài toán tổ hợp, tối ưu hóa, hoặc các trò chơi trí tuệ khác
+- Là nền tảng để nghiên cứu sâu hơn về AI, học máy, và các kỹ thuật giải quyết bài toán phức tạp trong thực tế
