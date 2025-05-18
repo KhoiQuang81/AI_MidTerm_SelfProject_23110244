@@ -9,116 +9,6 @@ class ConstraintSearch:
         self.pause_flag = [False]
 
     def backtracking(self, goal):
-        # variables = [f"X{i+1}" for i in range(9)]
-        # domains = {var: list(range(9)) for var in variables}
-        
-        # # Tạo ràng buộc
-        # constraints = self.create_constraints()
-        
-        # # Tạo CSP object đầy đủ
-        # csp = {
-        #     'variables': variables,
-        #     'domains': domains,
-        #     'constraints': constraints
-        # }
-        
-        # path = []  # Lưu lại quá trình tìm kiếm
-        
-        # def backtrack(assignment):
-        #     if len(assignment) == len(variables):
-        #         return assignment
-                
-        #     unassigned = [var for var in variables if var not in assignment]
-        #     var = unassigned[0]  # Lấy biến chưa gán
-            
-        #     # Thử các giá trị trong domain
-        #     for value in domains[var]:
-        #         # Lưu trạng thái hiện tại
-        #         current_state = [[0]*3 for _ in range(3)]
-        #         for v, val in assignment.items():
-        #             idx = int(v[1:]) - 1
-        #             row, col = idx//3, idx%3
-        #             current_state[row][col] = val
-        #         path.append([row[:] for row in current_state])
-                
-        #         # Kiểm tra tính nhất quán với CSP đầy đủ
-        #         if self.is_consistent(var, value, assignment, csp):
-        #             assignment[var] = value
-                    
-        #             # Kiểm tra số 8 ở vị trí áp chót
-        #             var_idx = int(var[1:]) - 1
-        #             if value == 8 and var_idx < 7:
-        #                 # Quay lui nếu số 8 xuất hiện quá sớm
-        #                 del assignment[var]
-        #                 continue
-                        
-        #             result = backtrack(assignment)
-        #             if result is not None:
-        #                 return result
-                        
-        #             # Quay lui nếu không tìm được lời giải
-        #             del assignment[var]
-                    
-        #     return None
-
-        # solution = backtrack({})
-        # return path, len(path)
-
-
-        # variables = [f"X{i+1}" for i in range(9)]
-        # domains = {var: list(range(9)) for var in variables}
-        # constraints = self.create_constraints()
-        # csp = {
-        #     'variables': variables,
-        #     'domains': domains,
-        #     'constraints': constraints
-        # }
-        # path = []
-
-        # def backtrack(assignment):
-        #     if len(assignment) == len(variables):
-        #         # Lưu trạng thái cuối cùng (đầy đủ)
-        #         current_state = [[0]*3 for _ in range(3)]
-        #         for v, val in assignment.items():
-        #             idx = int(v[1:]) - 1
-        #             row, col = idx//3, idx%3
-        #             current_state[row][col] = val
-        #         path.append([row[:] for row in current_state])
-        #         return assignment
-
-        #     unassigned = [var for var in variables if var not in assignment]
-        #     var = unassigned[0]
-        #     for value in domains[var]:
-        #         if self.is_consistent(var, value, assignment, csp):
-        #             assignment[var] = value
-
-        #             # Lưu trạng thái sau khi gán giá trị hợp lệ
-        #             current_state = [[0]*3 for _ in range(3)]
-        #             for v, val in assignment.items():
-        #                 idx = int(v[1:]) - 1
-        #                 row, col = idx//3, idx%3
-        #                 current_state[row][col] = val
-        #             path.append([row[:] for row in current_state])
-
-        #             # Kiểm tra số 8 ở vị trí áp chót
-        #             var_idx = int(var[1:]) - 1
-        #             if value == 8 and var_idx < 7:
-        #                 del assignment[var]
-        #                 path.pop()  # Xóa trạng thái vừa lưu vì không hợp lệ
-        #                 continue
-
-        #             result = backtrack(assignment)
-        #             if result is not None:
-        #                 return result
-
-        #             del assignment[var]
-        #             path.pop()  # Xóa trạng thái vừa lưu khi quay lui
-
-        #     return None
-
-        # solution = backtrack({})
-        # return path, len(path)
-
         variables = [f"X{i+1}" for i in range(9)]
         domains = {var: list(range(9)) for var in variables}
         constraints = self.create_constraints()
@@ -220,54 +110,60 @@ class ConstraintSearch:
         result = backtrack({})
         return result, nodes_expanded
     
-    def ac3(self, goal):
+    def backtracking_ac3(self, goal):
         variables = [f"X{i+1}" for i in range(9)]
         domains = {var: list(range(9)) for var in variables}
         constraints = self.create_constraints()
-        
         csp = {
             'variables': variables,
             'domains': domains,
             'constraints': constraints
         }
+        path = []
 
-        expansions = 0
-        # Tạo queue chứa tất cả các cặp biến có ràng buộc
-        queue = [(Xi, Xj) for Xi in variables for Xj in variables if Xi != Xj]
-        
-        while queue and not self.stop_flag[0]:
-            if self.pause_flag[0]:
-                sleep(0.1)
-                continue
-                
-            Xi, Xj = queue.pop(0)
-            expansions += 1
-            
-            if self.revise(csp, Xi, Xj):
-                if len(csp['domains'][Xi]) == 0:
-                    return None, expansions
-                    
-                # Thêm lại các cung liên quan
-                for Xk in variables:
-                    if Xk != Xi and Xk != Xj:
-                        queue.append((Xk, Xi))
+        def backtrack(assignment):
+            if len(assignment) == len(variables):
+                # Lưu trạng thái cuối cùng (đầy đủ)
+                current_state = [[0]*3 for _ in range(3)]
+                for v, val in assignment.items():
+                    idx = int(v[1:]) - 1
+                    row, col = idx//3, idx%3
+                    current_state[row][col] = val
+                path.append([row[:] for row in current_state])
+                return assignment
 
-        # Tìm lời giải sau khi thu gọn miền giá trị
-        solution = self.solve_backtrack(csp)[0]  # Chỉ lấy solution, bỏ qua expansions
-        
-        if solution:
-            # Chuyển solution thành chuỗi các states
-            path = []
-            current_state = [[0]*3 for _ in range(3)]
-            for var, value in solution.items():
-                idx = int(var[1:]) - 1
-                row, col = idx//3, idx%3
-                current_state[row][col] = value
-            path.append([row[:] for row in current_state])
-            
-            return path, expansions
-        
-        return None, expansions
+            unassigned = [var for var in variables if var not in assignment]
+            var = unassigned[0]
+            for value in domains[var]:
+                if self.is_consistent(var, value, assignment, csp):
+                    assignment[var] = value
+
+                    # Lưu trạng thái sau khi gán giá trị hợp lệ
+                    current_state = [[0]*3 for _ in range(3)]
+                    for v, val in assignment.items():
+                        idx = int(v[1:]) - 1
+                        row, col = idx//3, idx%3
+                        current_state[row][col] = val
+                    path.append([row[:] for row in current_state])
+
+                    # Kiểm tra số 8 ở vị trí áp chót
+                    var_idx = int(var[1:]) - 1
+                    if value == 8 and var_idx < 7:
+                        del assignment[var]
+                        path.pop()  # Xóa trạng thái vừa lưu vì không hợp lệ
+                        continue
+
+                    result = backtrack(assignment)
+                    if result is not None:
+                        return result
+
+                    del assignment[var]
+                    path.pop()  # Xóa trạng thái vừa lưu khi quay lui
+
+            return None
+
+        solution = backtrack({})
+        return path, len(path)
     
     def revise(self, csp, Xi, Xj):
         """Kiểm tra và loại bỏ giá trị không thỏa mãn ràng buộc"""

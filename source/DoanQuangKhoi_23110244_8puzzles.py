@@ -48,7 +48,7 @@ def solve_puzzle(start_state, goal_state, algorithm, canvas, root, speed_scale, 
         "Sensorless Search": complex_algo.sensorless_search,
         "Belief State Search": complex_algo.belief_state_search,
         "Backtracking": lambda start, goal: constraint_algo.backtracking(goal),
-        "AC-3": lambda start, goal: constraint_algo.ac3(goal),
+        "AC-3": lambda start, goal: constraint_algo.backtracking_ac3(goal),
         "Forward Checking": lambda start, goal: constraint_algo.forward_checking(goal),
         "Q-Learning": reinforcement_algo.q_learning,
     }
