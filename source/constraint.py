@@ -166,7 +166,6 @@ class ConstraintSearch:
         return path, len(path)
     
     def revise(self, csp, Xi, Xj):
-        """Kiểm tra và loại bỏ giá trị không thỏa mãn ràng buộc"""
         revised = False
         for x in csp['domains'][Xi][:]:  # Duyệt bản sao của domain
             satisfied = False
@@ -202,7 +201,6 @@ class ConstraintSearch:
         return constraints
 
     def is_consistent(self, var, value, assignment, csp):
-        """Kiểm tra tính nhất quán khi gán giá trị"""
         for constraint in csp['constraints']:
             if len(constraint) == 3:
                 var1, var2, test = constraint
@@ -214,30 +212,11 @@ class ConstraintSearch:
                         return False
         return True
     
-    def test_backtracking():
-        cs = ConstraintSearch([False], [False])
-        goal = [[1,2,3],[4,5,6],[7,8,0]]
-        solution, expansions = cs.backtracking(goal)
-        
-        assert solution is not None
-        assert len(solution) > 0
-        assert expansions > 0
-        
-    def test_ac3():
-        cs = ConstraintSearch([False], [False]) 
-        goal = [[1,2,3],[4,5,6],[7,8,0]]
-        solution, expansions = cs.ac3(goal)
-        
-        assert solution is not None 
-        assert len(solution) > 0
-        assert expansions > 0
-    
     def forward_checking(self, goal):
         variables = [f"X{i+1}" for i in range(9)]
         domains = {var: list(range(9)) for var in variables}
         constraints = self.create_constraints()
         
-        # Tạo CSP object đầy đủ
         csp = {
             'variables': variables,
             'domains': domains,
@@ -245,7 +224,6 @@ class ConstraintSearch:
         }
         
         path = []
-        
         def fc_search(assignment):
             if len(assignment) == len(variables):
                 return assignment
@@ -291,7 +269,6 @@ class ConstraintSearch:
         return path, len(path)
 
     def forward_check(self, var, value, assignment, csp):
-        """Thực hiện forward checking sau khi gán giá trị"""
         for constraint in csp['constraints']:
             if len(constraint) == 3:
                 var1, var2, test = constraint
@@ -317,20 +294,9 @@ class ConstraintSearch:
         return True
 
     def select_unassigned_variable(self, assignment, csp):
-        """Chọn biến chưa được gán giá trị (MRV - Minimum Remaining Values)"""
         unassigned = [var for var in csp['variables'] if var not in assignment]
         return min(unassigned, key=lambda var: len(csp['domains'][var]))
 
     def order_domain_values(self, var, assignment, csp):
-        """Sắp xếp thứ tự các giá trị trong domain (LCV - Least Constraining Value)"""
         return csp['domains'][var]
 
-    def test_forward_checking(self):
-        """Test hàm forward checking"""
-        cs = ConstraintSearch([False], [False])
-        goal = [[1,2,3],[4,5,6],[7,8,0]]
-        solution, expansions = cs.forward_checking(goal)
-        
-        assert solution is not None
-        assert len(solution) > 0
-        assert expansions > 0
