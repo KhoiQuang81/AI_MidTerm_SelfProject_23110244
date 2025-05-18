@@ -237,7 +237,7 @@
 3. **Thuật toán Forwarding Checking**
 - **Ưu điểm:**
 - **Nhược điểm:**
-![Forwarding Checking](GIF/ForwarD_Checking_GIF.gif)
+![Forwarding Checking](GIF/Forward_Checking_GIF.gif)
 
 #### So sánh hiệu suất
 ![So sánh hiệu suất thuật toán CONSTRAINT SATISFACTION PROBLEM](GIF/constraint_stat.png)
@@ -264,6 +264,7 @@
 1. **Thuật toán Q - Learning**    
 - **Ưu điểm:**
 - **Nhược điểm:**
+                                   
 ![Q - Learning](GIF/Q_Learning_GIF.gif)
 
 #### So sánh hiệu suất

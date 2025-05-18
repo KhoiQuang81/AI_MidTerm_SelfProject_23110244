@@ -61,22 +61,20 @@ def solve_puzzle(start_state, goal_state, algorithm, canvas, root, speed_scale, 
     # tINh thời gian
     start_time = perf_counter()
 
+
     if algorithm == "Sensorless Search":
-        # Không cần input, chỉ cần goal state
         actions, expansions = algorithms[algorithm](None, goal_state)
         
         if actions:
-            # Tìm một start state hợp lệ để hiển thị
-            current = start_state
+            current = start_state  
             path = [current]
-            for action in actions:
+            for action in actions: 
                 current = complex_algo.apply_action(current, action)
                 if current:
                     path.append(current)
-            solution = path  # Assign to solution variable
+            solution = path
         else:
             solution = None
-
     elif algorithm == "Belief State Search": 
         start_tuple = tuple(tuple(row) for row in start_state)
         start_set = {start_tuple}
@@ -90,7 +88,7 @@ def solve_puzzle(start_state, goal_state, algorithm, canvas, root, speed_scale, 
                 current = complex_algo.apply_action(current, action)
                 if current:
                     path.append(current)
-            solution = path  # Assign to solution variable
+            solution = path  
         else:
             solution = None
     elif algorithm in ["Backtracking", "AC-3", "Forward Checking"]:
@@ -98,16 +96,14 @@ def solve_puzzle(start_state, goal_state, algorithm, canvas, root, speed_scale, 
         if solution:
             formatted_solution = []
             for state in solution:
-                if isinstance(state, list):  # Nếu đã là ma trận
+                if isinstance(state, list): 
                     formatted_solution.append(state)
-                else:  # Nếu là dictionary từ CSP
+                else:  
                     current_state = [[0 for _ in range(3)] for _ in range(3)]
-                    # Sắp xếp các biến theo thứ tự X1->X9
                     sorted_vars = sorted(state.items(), key=lambda x: int(x[0][1:]))
                     for var, value in sorted_vars:
-                        idx = int(var[1:]) - 1  # Chuyển X1->X9 thành index 0->8
+                        idx = int(var[1:]) - 1 
                         row, col = idx // 3, idx % 3
-                        # Đảm bảo giá trị nằm trong khoảng 0-8
                         current_state[row][col] = value if value != None else 0
                     formatted_solution.append(current_state)
             solution = formatted_solution
@@ -139,9 +135,8 @@ def solve_puzzle(start_state, goal_state, algorithm, canvas, root, speed_scale, 
 
 def main():
     stats = {}
-    # Sử dụng list để truyền tham chiếu cho stop_flag và pause_flag
-    global stop_flag, pause_flag  # Thêm global
-    stop_flag[0] = False         # Reset flags
+    global stop_flag, pause_flag   
+    stop_flag[0] = False          
     pause_flag[0] = False
     iu.draw_ui(solve_puzzle, stats, stop_flag, pause_flag)
 

@@ -70,48 +70,50 @@ class Complex:
                     if flat[i] and flat[j] and flat[i] > flat[j])
             return inv % 2 == 0
 
-        # Initial belief state contains all possible solvable states
         if not start_set:
-            all_states = []
+            belief0 = set()
             for perm in itertools.permutations(range(9)):
                 state = [list(perm[i:i+3]) for i in range(0, 9, 3)]
                 if is_solvable(state):
-                    all_states.append(state)
-            belief0 = set(tuple(tuple(row) for row in state) for state in all_states)
+                    belief0.add(tuple(tuple(row) for row in state))
         else:
             belief0 = set(tuple(tuple(row) for row in state) for state in start_set)
 
-        queue = deque([(belief0, [])])
+        queue = deque([(belief0, [])]) 
         visited = set()
         expansions = 0
         
+        moves = ['up', 'down', 'left', 'right']
+        
         while queue:
-            belief, path = queue.popleft()
-            key = frozenset(belief)
-            if key in visited:
+            current_belief, actions = queue.popleft()
+            belief_key = frozenset(current_belief)
+            
+            if belief_key in visited:
                 continue
-                
-            visited.add(key)
+            visited.add(belief_key)
             expansions += 1
+            
+            if any(state == tuple(tuple(row) for row in goal_state) for state in current_belief):
+                return actions, expansions  
 
-            # Check if any state in belief matches goal
-            if any(state == goal_state for state in belief):
-                return path, expansions
-
-            # Try all possible moves
-            for action in ['up', 'down', 'left', 'right']:
+            for move in moves:
                 new_belief = set()
-                for state in belief:
+                all_valid = True
+                
+                for state in current_belief:
                     state_list = [list(row) for row in state]
-                    new_state = self.apply_action(state_list, action)
+                    new_state = self.apply_action(state_list, move)
                     if new_state is not None:
                         new_belief.add(tuple(tuple(row) for row in new_state))
+                    else:
+                        all_valid = False
+                        break
                 
-                if new_belief and frozenset(new_belief) not in visited:
-                    queue.append((new_belief, path + [action]))
+                if all_valid and new_belief and frozenset(new_belief) not in visited:
+                    queue.append((new_belief, actions + [move]))  
 
         return None, expansions
-    
 
     # Searching in Partially Observable Environments Belief - State Search
     def belief_state_search(self, start_set, goal_state):
