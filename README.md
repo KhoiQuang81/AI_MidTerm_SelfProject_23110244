@@ -232,12 +232,12 @@
 2. **Thuật toán AC - 3**
 - **Ưu điểm:**
 - **Nhược điểm:**
-![AC - 3](GIF/AC3_Search_GIF.gif)
+![AC - 3](GIF/AC_3_GIF.gif)
 
 3. **Thuật toán Forwarding Checking**
 - **Ưu điểm:**
 - **Nhược điểm:**
-![Forwarding Checking](GIF/Forwarding_Checking_GIF.gif)
+![Forwarding Checking](GIF/ForwarD_Checking_GIF.gif)
 
 #### So sánh hiệu suất
 ![So sánh hiệu suất thuật toán CONSTRAINT SATISFACTION PROBLEM](GIF/constraint_stat.png)

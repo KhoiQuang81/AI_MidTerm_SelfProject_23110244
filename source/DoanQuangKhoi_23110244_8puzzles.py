@@ -60,7 +60,40 @@ def solve_puzzle(start_state, goal_state, algorithm, canvas, root, speed_scale, 
 
     # tINh thời gian
     start_time = perf_counter()
-    if algorithm in ["Backtracking", "AC-3", "Forward Checking"]:
+
+    if algorithm == "Sensorless Search":
+        # Không cần input, chỉ cần goal state
+        actions, expansions = algorithms[algorithm](None, goal_state)
+        
+        if actions:
+            # Tìm một start state hợp lệ để hiển thị
+            current = start_state
+            path = [current]
+            for action in actions:
+                current = complex_algo.apply_action(current, action)
+                if current:
+                    path.append(current)
+            solution = path  # Assign to solution variable
+        else:
+            solution = None
+
+    elif algorithm == "Belief State Search": 
+        start_tuple = tuple(tuple(row) for row in start_state)
+        start_set = {start_tuple}
+        
+        actions, expansions = algorithms[algorithm](start_set, goal_state)
+        
+        if actions:
+            current = start_state
+            path = [current]
+            for action in actions:
+                current = complex_algo.apply_action(current, action)
+                if current:
+                    path.append(current)
+            solution = path  # Assign to solution variable
+        else:
+            solution = None
+    elif algorithm in ["Backtracking", "AC-3", "Forward Checking"]:
         solution, expansions = algorithms[algorithm](None, goal_state)
         if solution:
             formatted_solution = []
@@ -78,26 +111,6 @@ def solve_puzzle(start_state, goal_state, algorithm, canvas, root, speed_scale, 
                         current_state[row][col] = value if value != None else 0
                     formatted_solution.append(current_state)
             solution = formatted_solution
-    # if algorithm in ["Backtracking", "AC-3", "Forward Checking"]:
-    #     solution, expansions = algorithms[algorithm](None, goal_state)
-    #     if solution:
-    #         # Format lại solution để hiển thị đúng vị trí
-    #         formatted_solution = []
-    #         for state in solution:
-    #             # Nếu state là dictionary (từ CSP)
-    #             if isinstance(state, dict):
-    #                 current_state = [[0 for _ in range(3)] for _ in range(3)]
-    #                 # Sắp xếp các biến theo thứ tự vị trí
-    #                 sorted_vars = sorted(state.items(), key=lambda x: int(x[0][1:]))
-    #                 for var, value in sorted_vars:
-    #                     idx = int(var[1:]) - 1
-    #                     row, col = idx // 3, idx % 3
-    #                     current_state[row][col] = value
-    #                 formatted_solution.append(current_state)
-    #             # Nếu state là ma trận (từ các thuật toán khác)
-    #             else:
-    #                 formatted_solution.append(state)
-    #         solution = formatted_solution
     else:
         solution, expansions = algorithms[algorithm](start_state, goal_state)
     elapsed_time = perf_counter() - start_time
